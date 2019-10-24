@@ -6,7 +6,6 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using RandomNameGeneratorLibrary;
 
 
 namespace FollowIT___Automation
