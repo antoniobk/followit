@@ -20,7 +20,7 @@ namespace FollowIT___Automation
 
             Candidate.createCandidate(driver);
 
-
+            
             //BaseClass.closeApplication(driver);
         }
     }
