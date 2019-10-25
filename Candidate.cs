@@ -9,6 +9,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 
 
+
 namespace FollowIT___Automation
 {
     public class Candidate
@@ -24,7 +25,9 @@ namespace FollowIT___Automation
             var firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
             var lastName = new Bogus.DataSets.Name("nl_BE").LastName();
             var placeOfBirth = new Bogus.DataSets.Address("nl_BE").City();
-            var date = new Bogus.DataSets.Date().Past(20);
+            Thread.Sleep(1000);
+            //convert date to string!!
+            var date = new Bogus.DataSets.Date().Past(20).ToString("dd-MM-yyyy");
             var cellPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("### ## ## ##");
             var email = firstName + lastName + ("@gmail.com");
             var street = new Bogus.DataSets.Address("nl_BE").StreetName();
@@ -50,9 +53,15 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddCandidate']")).Click();
             Thread.Sleep(3000);
 
+            
             //General
             Console.WriteLine(" ===== Adding general info ===== ");
             driver.FindElement(By.XPath("//input[@data-testscript='PlaceOfBirth']")).SendKeys(placeOfBirth);
+
+            //driver.FindElement(By.XPath("//div[@data-testscript='BirthDate']")).SendKeys(date);
+            
+            
+            //driver.FindElement(By.XPath("//div[@data-testscript='BirthDate']")).SendKeys("hello");
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//div[@data-testscript='Nationality']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'American')]")).Click();
@@ -88,7 +97,7 @@ namespace FollowIT___Automation
 
             //Save
             driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
-            System.Threading.Thread.Sleep(3000);
+            Thread.Sleep(3000);
 
             //driver.FindElement(By.XPath("//button[@data-testscript='SaveCloseButton']")).Click();
 
