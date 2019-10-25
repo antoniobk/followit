@@ -6,6 +6,8 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
+
 
 
 namespace FollowIT___Automation
@@ -14,10 +16,9 @@ namespace FollowIT___Automation
     {
 
 
-        public static void loginWithTestUser(IWebDriver driver)
+        public static void loginUat(IWebDriver driver)
 
         {
-            
             driver.FindElement(By.Id("Username")).SendKeys("antoniobuzbuchi");
             driver.FindElement(By.Id("Password")).SendKeys("Test123!");
 
