@@ -25,7 +25,6 @@ namespace FollowIT___Automation
             var firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
             var lastName = new Bogus.DataSets.Name("nl_BE").LastName();
             var placeOfBirth = new Bogus.DataSets.Address("nl_BE").City();
-            Thread.Sleep(1000);
             //convert date to string!!
             var date = new Bogus.DataSets.Date().Past(20).ToString("dd-MM-yyyy");
             var cellPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("### ## ## ##");
