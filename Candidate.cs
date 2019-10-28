@@ -133,12 +133,13 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//button[@data-bb-handler='confirm']")).Click();
             driver.FindElement(By.XPath("//input[@name='name']")).SendKeys(lastName + "Company");
 
+
             /* string[] juridicalFormsArray = new string[3] { "NV", "BVBA", "Eenmanszaak" };
             int index = random.Next(juridicalFormsArray.Length); */
             driver.FindElement(By.XPath("//input[@name='juridicalForm']")).SendKeys(juridicalFormsArray[index]);
 
             driver.FindElement(By.XPath("//button[@data-testscript='SaveCloseButton']")).Click();
-
+            
 
 
 
