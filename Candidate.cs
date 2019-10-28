@@ -17,22 +17,30 @@ namespace FollowIT___Automation
 
         public static void createCandidate(IWebDriver driver)
         {
+
+           
             //press enter
            Actions pressEnter = new Actions(driver);
-           pressEnter.SendKeys(Keys.Enter); 
+           pressEnter.SendKeys(Keys.Enter);
+
+            Random random = new Random();
 
             //generating random testdata
             var firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
             var lastName = new Bogus.DataSets.Name("nl_BE").LastName();
             var placeOfBirth = new Bogus.DataSets.Address("nl_BE").City();
-            //convert date to string!!
-            var date = new Bogus.DataSets.Date().Past(20).ToString("dd-MM-yyyy");
+            //always convert date to string!!
+            var date = new Bogus.DataSets.Date().Past(20).ToString("dd-MM-yyyy");           
             var cellPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("### ## ## ##");
             var email = firstName + lastName + ("@gmail.com");
             var street = new Bogus.DataSets.Address("nl_BE").StreetName();
             var city = new Bogus.DataSets.Address("nl_BE").City();
             var zipCode = new Bogus.DataSets.Address("nl_BE").ZipCode();
-            
+
+            string[] juridicalFormsArray = new string[3] { "NV", "BVBA", "Eenmanszaak" };
+            int index = random.Next(juridicalFormsArray.Length);
+
+
 
 
 
@@ -51,21 +59,20 @@ namespace FollowIT___Automation
             Thread.Sleep(3000);
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddCandidate']")).Click();
             Thread.Sleep(3000);
-
+            
             
             //General
             Console.WriteLine(" ===== Adding general info ===== ");
             driver.FindElement(By.XPath("//input[@data-testscript='PlaceOfBirth']")).SendKeys(placeOfBirth);
+            driver.FindElement(By.XPath("//input[@name='birthdate']")).SendKeys(date);
 
-            //driver.FindElement(By.XPath("//div[@data-testscript='BirthDate']")).SendKeys(date);
-            
-            
-            //driver.FindElement(By.XPath("//div[@data-testscript='BirthDate']")).SendKeys("hello");
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//div[@data-testscript='Nationality']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'American')]")).Click();
             driver.FindElement(By.XPath("//div[@data-testscript='Type']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'Employee Consulant')]")).Click();
+
+            
          
 
             //Contact
@@ -98,7 +105,6 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
             Thread.Sleep(3000);
 
-            //driver.FindElement(By.XPath("//button[@data-testscript='SaveCloseButton']")).Click();
 
 
             //Adding actions
@@ -115,8 +121,28 @@ namespace FollowIT___Automation
             //Adding tags           
             driver.FindElement(By.XPath("//li[@data-testscript='TagsTab']")).Click();
             driver.FindElement(By.XPath("//input[@data-testscript='CheckBoxTag']")).Click();
-
+            Thread.Sleep(1000);
+          
             
+
+            //Billing information
+           
+            driver.FindElement(By.XPath("//li[@data-testscript='BillingInformationTab']")).Click();
+            driver.FindElement(By.XPath("//input[@name='freelancer']")).Click();
+            Thread.Sleep(2000);
+            driver.FindElement(By.XPath("//button[@data-bb-handler='confirm']")).Click();
+            driver.FindElement(By.XPath("//input[@name='name']")).SendKeys(lastName + "Company");
+
+            /* string[] juridicalFormsArray = new string[3] { "NV", "BVBA", "Eenmanszaak" };
+            int index = random.Next(juridicalFormsArray.Length); */
+            driver.FindElement(By.XPath("//input[@name='juridicalForm']")).SendKeys(juridicalFormsArray[index]);
+
+            driver.FindElement(By.XPath("//button[@data-testscript='SaveCloseButton']")).Click();
+
+
+
+
+
 
 
 
