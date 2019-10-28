@@ -10,19 +10,19 @@ namespace FollowIT___Automation
         static void Main(string[] args)
         {
             IWebDriver driver = new ChromeDriver("C:/ChromeDriver");
-            
-            
+            Candidate candidate = new Candidate();
+
             BaseClass.setupApplication(driver);
+            Login.loginUat(driver);
+            candidate.AddNewCandidate(driver);
+            candidate.AddGeneralInfo(driver);
+            //candidate.
+           
 
-            login.loginUat(driver);
+            //Organizations.CreateOrganization(driver);
 
-            Candidate.createCandidate(driver);
-            //Organizations.CreateOrganization(driver);      
-    
-               
-                     
+            
           
-
             
             //BaseClass.closeApplication(driver);
         }

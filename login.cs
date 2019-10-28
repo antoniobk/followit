@@ -12,9 +12,8 @@ using OpenQA.Selenium.Interactions;
 
 namespace FollowIT___Automation
 {
-    class login
+    class Login
     {
-
 
         public static void loginUat(IWebDriver driver)
 
