@@ -12,17 +12,17 @@ using OpenQA.Selenium.Interactions;
 
 namespace FollowIT___Automation
 {
-    class Login
+   public class Login
     {
 
-        public static void loginUat(IWebDriver driver)
+        public void UAT(IWebDriver driver)
 
         {
             driver.FindElement(By.Id("Username")).SendKeys("antoniobuzbuchi");
             driver.FindElement(By.Id("Password")).SendKeys("Test123!");
 
             driver.FindElement(By.XPath("//button[@value='login']")).Click();
-            System.Threading.Thread.Sleep(10000);
+            Thread.Sleep(5000);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace FollowIT___Automation
 {
 
 
-    public class Organizations
+    public class Organizations : RandomDataGenerator
     {
         string organizationName = new Bogus.DataSets.Company("nl_BE").CompanyName();
         string organizationWebsite = new Bogus.DataSets.Lorem().Word();
@@ -46,7 +46,7 @@ namespace FollowIT___Automation
 
 
 
-        public void Save()
+        public void Save(IWebDriver driver)
         {
             driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
         }

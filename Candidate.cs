@@ -12,7 +12,7 @@ using OpenQA.Selenium.Interactions;
 
 namespace FollowIT___Automation
 {
-    public class Candidate
+    public class Candidate : RandomDataGenerator
     {
 
         string firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
