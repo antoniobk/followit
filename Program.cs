@@ -11,17 +11,27 @@ namespace FollowIT___Automation
         {
             IWebDriver driver = new ChromeDriver("C:/ChromeDriver");
             Candidate candidate = new Candidate();
+            Organizations organization = new Organizations();
 
             BaseClass.setupApplication(driver);
             Login.loginUat(driver);
+
             candidate.AddNewCandidate(driver);
             candidate.AddGeneralInfo(driver);
-            //candidate.
-           
+            candidate.AddContactInformation(driver);
+            candidate.AddAddress(driver);
+            candidate.AddOrigin(driver);
+            candidate.AddWorkDetails(driver);
+            candidate.Save(driver);
+            candidate.AddAction(driver);
+            candidate.AddTags(driver);
+            candidate.AddBillingInformation(driver);
 
-            //Organizations.CreateOrganization(driver);
+            organization.AddOrganization(driver);
+            organization.AddGeneralInfo(driver);
 
-            
+
+          
           
             
             //BaseClass.closeApplication(driver);

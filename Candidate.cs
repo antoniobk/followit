@@ -16,12 +16,10 @@ namespace FollowIT___Automation
     {
 
         string firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
-        var lastName = new Bogus.DataSets.Name("nl_BE").LastName();
+        string lastName = new Bogus.DataSets.Name("nl_BE").LastName();
 
         public void AddNewCandidate(IWebDriver driver)
-        {
-            string firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
-            var lastName = new Bogus.DataSets.Name("nl_BE").LastName();
+        { 
 
             Console.WriteLine(" ===== Adding new candidate ===== ");
             driver.FindElement(By.XPath("//li[@data-testscript='Recruitment']")).Click();
@@ -83,13 +81,14 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//div[@data-testscript='Origin']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'Stepstone')]")).Click();
 
+        }
 
+        public void AddWorkDetails(IWebDriver driver)
+        {
             driver.FindElement(By.XPath("//input[@data-testscript='WorkTitle']")).SendKeys("Ontwikkelaar");
             // only use if availability date is entered
             //driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
-
         }
-
         public void Save(IWebDriver driver)
         {
             driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
@@ -127,11 +126,11 @@ namespace FollowIT___Automation
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//button[@data-bb-handler='confirm']")).Click();
             driver.FindElement(By.XPath("//input[@name='name']")).SendKeys($"{firstName}Company name here");
-
             driver.FindElement(By.XPath("//input[@name='juridicalForm']")).SendKeys(juridicalFormsArray[index]);
-
             driver.FindElement(By.XPath("//button[@data-testscript='SaveCloseButton']")).Click();
         }
+
+
 
     }
 }
