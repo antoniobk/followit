@@ -22,7 +22,7 @@ namespace FollowIT___Automation
             driver.FindElement(By.Id("Password")).SendKeys("Test123!");
 
             driver.FindElement(By.XPath("//button[@value='login']")).Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(8000);
         }
     }
 }

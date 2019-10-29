@@ -35,7 +35,7 @@ namespace FollowIT___Automation
             Thread.Sleep(2000);
         }
 
-        public void AddGeneralInfo(IWebDriver driver)
+        public void AddOrganizationDetails(IWebDriver driver)
         {
             driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isManuallyValidated']")).Click();
             driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isPartner']")).Click();
@@ -45,11 +45,6 @@ namespace FollowIT___Automation
         }
 
 
-
-        public void Save(IWebDriver driver)
-        {
-            driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
-        }
 
     }
 }

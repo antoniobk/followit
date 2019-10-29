@@ -12,11 +12,20 @@ using OpenQA.Selenium.Interactions;
 
 namespace FollowIT___Automation
 {
-    public class Candidate : RandomDataGenerator
-    {
 
+    
+    public class Candidate
+    {
         string firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
         string lastName = new Bogus.DataSets.Name("nl_BE").LastName();
+        string placeOfBirth = new Bogus.DataSets.Address("nl_BE").City();
+        string date = new Bogus.DataSets.Date().Past(20).ToString("dd-MM-yyyy");
+        string cellPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("### ## ## ##");
+        string street = new Bogus.DataSets.Address("nl_BE").StreetName();
+        string city = new Bogus.DataSets.Address("nl_BE").City();
+        string zipCode = new Bogus.DataSets.Address("nl_BE").ZipCode();
+
+        
 
         public void AddNewCandidate(IWebDriver driver)
         { 
@@ -24,48 +33,39 @@ namespace FollowIT___Automation
             Console.WriteLine(" ===== Adding new candidate ===== ");
             driver.FindElement(By.XPath("//li[@data-testscript='Recruitment']")).Click();
             Thread.Sleep(2000);
+
             driver.FindElement(By.XPath("//li[@data-testscript='Candidates']")).Click();
             Thread.Sleep(1000);
+
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddCandidate']")).Click();
             driver.FindElement(By.XPath("//input[@data-testscript='Firstname']")).SendKeys(firstName);
             driver.FindElement(By.XPath("//input[@data-testscript='Lastname']")).SendKeys(lastName);
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonCheckCandidate']")).Click();
             Thread.Sleep(3000);
+
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddCandidate']")).Click();
             Thread.Sleep(3000);
 
         }
 
-        public void AddGeneralInfo(IWebDriver driver)
+        public void AddCandidateDetails(IWebDriver driver)
         {
-            var placeOfBirth = new Bogus.DataSets.Address("nl_BE").City();
-            var date = new Bogus.DataSets.Date().Past(20).ToString("dd-MM-yyyy");
+
+
             Console.WriteLine(" ===== Adding general info ===== ");
             driver.FindElement(By.XPath("//input[@data-testscript='PlaceOfBirth']")).SendKeys(placeOfBirth);
             driver.FindElement(By.XPath("//input[@name='birthdate']")).SendKeys(date);
             Thread.Sleep(2000);
+
             driver.FindElement(By.XPath("//div[@data-testscript='Nationality']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'American')]")).Click();
             driver.FindElement(By.XPath("//div[@data-testscript='Type']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'Employee Consulant')]")).Click();
-        }
 
-        public void AddContactInformation(IWebDriver driver)
-        {
-            var cellPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("### ## ## ##");
-
-            Console.WriteLine(" ===== Adding contact info ===== ");
             driver.FindElement(By.XPath("//input[@data-testscript='Cellphone']")).SendKeys("+32 " + cellPhoneNumber);
 
             Thread.Sleep(3000);
             //driver.FindElement(By.XPath("")).SendKeys(email);
-        }
-
-        public void AddAddress(IWebDriver driver)
-        {
-            var street = new Bogus.DataSets.Address("nl_BE").StreetName();
-            var city = new Bogus.DataSets.Address("nl_BE").City();
-            var zipCode = new Bogus.DataSets.Address("nl_BE").ZipCode();
 
             Console.WriteLine(" ===== Adding address info ===== ");
             driver.FindElement(By.Name("street")).SendKeys(street);
@@ -73,22 +73,21 @@ namespace FollowIT___Automation
             driver.FindElement(By.Name("zipCode")).SendKeys(zipCode);
             driver.FindElement(By.XPath("//div[@data-testscript='Country']")).Click();
             driver.FindElement(By.XPath("//span[@class='ng-binding ng-scope'][contains(text(),'Belgium')]")).Click();
-        }
 
-        public void AddOrigin(IWebDriver driver)
-        {
-            Console.WriteLine(" ===== Adding origin info ===== ");
             driver.FindElement(By.XPath("//div[@data-testscript='Origin']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'Stepstone')]")).Click();
 
-        }
 
-        public void AddWorkDetails(IWebDriver driver)
-        {
+
+
             driver.FindElement(By.XPath("//input[@data-testscript='WorkTitle']")).SendKeys("Ontwikkelaar");
             // only use if availability date is entered
             //driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
+
         }
+
+
+
         public void Save(IWebDriver driver)
         {
             driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
@@ -112,7 +111,7 @@ namespace FollowIT___Automation
                        
             driver.FindElement(By.XPath("//li[@data-testscript='TagsTab']")).Click();
             driver.FindElement(By.XPath("//input[@data-testscript='CheckBoxTag']")).Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
         }
 
         public void AddBillingInformation(IWebDriver driver)
@@ -125,9 +124,13 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//input[@name='freelancer']")).Click();
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//button[@data-bb-handler='confirm']")).Click();
+            Thread.Sleep(1000);
             driver.FindElement(By.XPath("//input[@name='name']")).SendKeys($"{firstName}Company name here");
             driver.FindElement(By.XPath("//input[@name='juridicalForm']")).SendKeys(juridicalFormsArray[index]);
-            driver.FindElement(By.XPath("//button[@data-testscript='SaveCloseButton']")).Click();
+            Thread.Sleep(1000);
+            
+
+
         }
 
 
