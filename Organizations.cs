@@ -12,12 +12,14 @@ namespace FollowIT___Automation
 {
 
 
-    public class Organizations : RandomDataGenerator
+    public class Organizations
     {
         string organizationName = new Bogus.DataSets.Company("nl_BE").CompanyName();
         string organizationWebsite = new Bogus.DataSets.Lorem().Word();
         string organizationPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("# ### ## ##");
-       
+        string firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
+        string lastName = new Bogus.DataSets.Name("nl_BE").LastName();
+
 
         public void AddOrganization(IWebDriver driver)
         {
@@ -36,12 +38,16 @@ namespace FollowIT___Automation
         }
 
         public void AddOrganizationDetails(IWebDriver driver)
-        {
+        {   //general
             driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isManuallyValidated']")).Click();
             driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isPartner']")).Click();
             driver.FindElement(By.XPath("//input[@name='website']")).SendKeys($"https://www.{organizationWebsite}.be");
             driver.FindElement(By.XPath("//input[@name='tradeName']")).SendKeys($"{organizationWebsite}");
             driver.FindElement(By.XPath("//input[@name='phone']")).SendKeys("+32 " + organizationPhoneNumber);
+
+            //sales
+            driver.FindElement(By.XPath("//input[@name='salesLead']")).SendKeys($"{firstName} {lastName}");
+
         }
 
 
