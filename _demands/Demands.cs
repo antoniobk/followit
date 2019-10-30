@@ -23,8 +23,10 @@ namespace FollowIT___Automation
 
         public void AddDemandDetails(IWebDriver driver)
         {
-            driver.FindElement(By.XPath("//input[@name='title']")).SendKeys("");
-            driver.FindElement(By.XPath("//input[@name='PostingTitle']")).SendKeys("");
+            
+            driver.FindElement(By.XPath("//input[@name='title']")).SendKeys("Title");
+            driver.FindElement(By.XPath("//input[@name='PostingTitle']")).SendKeys("PostingTitle");
+
 
         }
     }

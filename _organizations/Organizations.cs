@@ -12,13 +12,8 @@ namespace FollowIT___Automation
 {
 
 
-    public class Organizations
+    public class Organizations : OrganizationsRandomGenerator
     {
-        string organizationName = new Bogus.DataSets.Company("nl_BE").CompanyName();
-        string organizationWebsite = new Bogus.DataSets.Lorem().Word();
-        string organizationPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("# ### ## ##");
-        string firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
-        string lastName = new Bogus.DataSets.Name("nl_BE").LastName();
 
 
         public void AddOrganization(IWebDriver driver)
@@ -47,6 +42,7 @@ namespace FollowIT___Automation
 
             //sales
             driver.FindElement(By.XPath("//input[@name='salesLead']")).SendKeys($"{firstName} {lastName}");
+
 
         }
 

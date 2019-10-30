@@ -4,8 +4,7 @@ using System.Text;
 
 namespace FollowIT___Automation
 {
-    public class RandomDataGenerator
+    class DemandsRandomGenerator
     {
-        
     }
 }

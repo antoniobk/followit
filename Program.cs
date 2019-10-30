@@ -9,14 +9,6 @@ namespace FollowIT___Automation
     {
         static void Main(string[] args)
         {
-            IWebDriver driver = new ChromeDriver("C:/ChromeDriver");
-            Candidate candidate = new Candidate();
-            Organizations organization = new Organizations();
-            Demands demands = new Demands();
-            Save save = new Save();
-            Login login = new Login();
-
-
             Console.WriteLine("[1] - Create candidate");
             Console.WriteLine("[2] - Create organization");
             Console.WriteLine("[3] - Create demand");
@@ -24,7 +16,15 @@ namespace FollowIT___Automation
             Console.WriteLine("");
             Console.WriteLine("What do you want to do?");
             int answer = int.Parse(Console.ReadLine());
-          
+
+
+            IWebDriver driver = new ChromeDriver("C:/ChromeDriver");
+            Candidate candidate = new Candidate();
+            Organizations organization = new Organizations();
+            Demands demands = new Demands();
+            Save save = new Save();
+            Login login = new Login();
+
 
            
 
@@ -86,9 +86,13 @@ namespace FollowIT___Automation
 
             }
 
+            else
+            {
+                Console.WriteLine("Closing");
+            }
+
             
-          
-           
+                 
                      
             //BaseClass.closeApplication(driver);
         }

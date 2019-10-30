@@ -14,22 +14,15 @@ namespace FollowIT___Automation
 {
 
     
-    public class Candidate
-    {
-        string firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
-        string lastName = new Bogus.DataSets.Name("nl_BE").LastName();
-        string placeOfBirth = new Bogus.DataSets.Address("nl_BE").City();
-        string date = new Bogus.DataSets.Date().Past(20).ToString("dd-MM-yyyy");
-        string cellPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("### ## ## ##");
-        string street = new Bogus.DataSets.Address("nl_BE").StreetName();
-        string city = new Bogus.DataSets.Address("nl_BE").City();
-        string zipCode = new Bogus.DataSets.Address("nl_BE").ZipCode();
+    public class Candidate : CandidateRandomGenerator
 
-        
+    {
+       
+       
 
         public void AddNewCandidate(IWebDriver driver)
         { 
-
+            
             Console.WriteLine(" ===== Adding new candidate ===== ");
             driver.FindElement(By.XPath("//li[@data-testscript='Recruitment']")).Click();
             Thread.Sleep(2000);
@@ -90,12 +83,14 @@ namespace FollowIT___Automation
 
         public void Save(IWebDriver driver)
         {
+            Console.WriteLine(" ===== Saving ===== ");
             driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
             Thread.Sleep(3000);
         }
 
         public void AddAction(IWebDriver driver)
         {
+            Console.WriteLine(" ===== Adding action ===== ");
             driver.FindElement(By.XPath("//li[@data-testscript='ActionsTab']")).Click();
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddAction']")).Click();
             Thread.Sleep(2000);
@@ -108,7 +103,7 @@ namespace FollowIT___Automation
 
         public void AddTags(IWebDriver driver)
         {
-                       
+            Console.WriteLine(" ===== Adding tags ===== ");           
             driver.FindElement(By.XPath("//li[@data-testscript='TagsTab']")).Click();
             driver.FindElement(By.XPath("//input[@data-testscript='CheckBoxTag']")).Click();
             Thread.Sleep(2000);
@@ -119,7 +114,8 @@ namespace FollowIT___Automation
             Random random = new Random();
             string[] juridicalFormsArray = new string[3] { "NV", "BVBA", "Eenmanszaak" };
             int index = random.Next(juridicalFormsArray.Length);
-
+            
+            Console.WriteLine(" ==== Adding billing information ===== ");
             driver.FindElement(By.XPath("//li[@data-testscript='BillingInformationTab']")).Click();
             driver.FindElement(By.XPath("//input[@name='freelancer']")).Click();
             Thread.Sleep(2000);
