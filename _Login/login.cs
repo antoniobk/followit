@@ -15,8 +15,7 @@ namespace FollowIT___Automation
    public class Login
     {
 
-        public void UAT(IWebDriver driver)
-
+        public static void UAT(IWebDriver driver)
         {
             driver.FindElement(By.Id("Username")).SendKeys("antoniobuzbuchi");
             driver.FindElement(By.Id("Password")).SendKeys("Test123!");

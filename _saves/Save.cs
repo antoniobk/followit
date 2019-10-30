@@ -11,13 +11,13 @@ namespace FollowIT___Automation
 {
     class Save
     {
-        public void SaveOnly(IWebDriver driver)
+        public static void SaveOnly(IWebDriver driver)
         {
             driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
             Thread.Sleep(3000);
         }
 
-        public void SaveAndClose(IWebDriver driver)
+        public static void SaveAndClose(IWebDriver driver)
         {
             driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div/div[2]/div/div/div[6]/div/div[2]/footer-action-buttons/div/button[2]")).Click();
         }

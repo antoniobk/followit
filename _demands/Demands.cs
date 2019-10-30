@@ -12,7 +12,7 @@ namespace FollowIT___Automation
 {
     public class Demands
     {
-        public void AddDemand(IWebDriver driver)
+        public static void AddDemand(IWebDriver driver)
         {
             driver.FindElement(By.XPath("//li[@data-testscript='Recruitment']")).Click();
             driver.FindElement(By.XPath("//li[@data-testscript='Demands']")).Click();
@@ -21,7 +21,7 @@ namespace FollowIT___Automation
 
         }
 
-        public void AddDemandDetails(IWebDriver driver)
+        public static void AddDemandDetails(IWebDriver driver)
         {
             
             driver.FindElement(By.XPath("//input[@name='title']")).SendKeys("Title");

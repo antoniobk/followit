@@ -15,12 +15,11 @@ namespace FollowIT___Automation
 
     
     public class Candidate : CandidateRandomGenerator
-
     {
-       
-       
 
-        public void AddNewCandidate(IWebDriver driver)
+
+
+        public static void AddNewCandidate(IWebDriver driver)
         { 
             
             Console.WriteLine(" ===== Adding new candidate ===== ");
@@ -38,10 +37,9 @@ namespace FollowIT___Automation
 
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddCandidate']")).Click();
             Thread.Sleep(3000);
-
         }
 
-        public void AddCandidateDetails(IWebDriver driver)
+        public static void AddCandidateDetails(IWebDriver driver)
         {
 
 
@@ -74,21 +72,11 @@ namespace FollowIT___Automation
 
 
             driver.FindElement(By.XPath("//input[@data-testscript='WorkTitle']")).SendKeys("Ontwikkelaar");
-            // only use if availability date is entered
-            //driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
+           // driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
 
         }
 
-
-
-        public void Save(IWebDriver driver)
-        {
-            Console.WriteLine(" ===== Saving ===== ");
-            driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
-            Thread.Sleep(5000);
-        }
-
-        public void AddAction(IWebDriver driver)
+        public static void AddAction(IWebDriver driver)
         {
             Console.WriteLine(" ===== Adding action ===== ");
             driver.FindElement(By.XPath("//li[@data-testscript='ActionsTab']")).Click();
@@ -101,7 +89,7 @@ namespace FollowIT___Automation
             Thread.Sleep(2000);
         }
 
-        public void AddTags(IWebDriver driver)
+        public static void AddTags(IWebDriver driver)
         {
             Console.WriteLine(" ===== Adding tags ===== ");           
             driver.FindElement(By.XPath("//li[@data-testscript='TagsTab']")).Click();
@@ -109,7 +97,7 @@ namespace FollowIT___Automation
             Thread.Sleep(4000);
         }
 
-        public void AddBillingInformation(IWebDriver driver)
+        public static void AddBillingInformation(IWebDriver driver)
         {
             Random random = new Random();
             string[] juridicalFormsArray = new string[3] { "NV", "BVBA", "Eenmanszaak" };
@@ -124,9 +112,6 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//input[@name='name']")).SendKeys($"{firstName}Company name here");
             driver.FindElement(By.XPath("//input[@name='juridicalForm']")).SendKeys(juridicalFormsArray[index]);
             Thread.Sleep(1000);
-            
-
-
         }
 
 

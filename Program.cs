@@ -11,73 +11,58 @@ namespace FollowIT___Automation
         {
             
             Console.Title = "Follow IT - automated tester";
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.White;
+            int answer;
 
-            Console.WriteLine("Hey there, what do you want to test?");
-            Console.WriteLine("");
-            Console.WriteLine("[1] - Create candidate");
-            Console.WriteLine("[2] - Create organization");
-            Console.WriteLine("[3] - Create demand");
-            Console.WriteLine("[5] - Test all");
-            int answer = int.Parse(Console.ReadLine());
+            do
+            {
+                Console.WriteLine("Hey there, what do you want to test?\n");
+                Console.WriteLine("[1] - Create candidate");
+                Console.WriteLine("[2] - Create organization");
+                Console.WriteLine("[3] - Create demand");
+                Console.WriteLine("[5] - Test all\n");
+                Console.Write("Type your choice: ");
+                answer = int.Parse(Console.ReadLine());
+
+            } while (answer < 0 || answer > 3);
 
 
             IWebDriver driver = new ChromeDriver("C:/ChromeDriver");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-            Candidate candidate = new Candidate();
-            Organizations organization = new Organizations();
-            Demands demands = new Demands();
-            Save save = new Save();
-            Login login = new Login();
 
-
-           
-
-            if (answer == 1)
+            switch (answer)
             {
-                Console.WriteLine("Creating candidate");
-                BaseClass.setupApplication(driver);
-                login.UAT(driver);
+                case 1:
+                    BaseClass.setupApplication(driver);
+                    Console.WriteLine("Creating Candidate");
+                    Login.UAT(driver);
+                    Candidate.AddNewCandidate(driver);
+                    Candidate.AddCandidateDetails(driver);
+                    Save.SaveOnly(driver);
+                    Candidate.AddAction(driver);
+                    Candidate.AddTags(driver);
+                    Candidate.AddBillingInformation(driver);
+                    Save.SaveAndClose(driver);
+                    break;
+                case 2:
+                    Console.WriteLine("Creating organization");
+                    BaseClass.setupApplication(driver);
+                    Login.UAT(driver);
+                    Organizations.AddOrganization(driver);
+                    Organizations.AddOrganizationDetails(driver);
+                    Save.SaveOnly(driver);
+                    break;
+                case 3:
+                    Console.WriteLine("Creating demand");
+                    BaseClass.setupApplication(driver);
+                    Login.UAT(driver);
+                    Demands.AddDemand(driver);
+                    Save.SaveOnly(driver);
+                    break;
+                default:
 
-                candidate.AddNewCandidate(driver);
-                candidate.AddCandidateDetails(driver);
-                save.SaveOnly(driver);
-                candidate.AddAction(driver);
-                candidate.AddTags(driver);
-                candidate.AddBillingInformation(driver);
-                save.SaveAndClose(driver);
-
-            }
-
-            else if (answer == 2)
-            {
-                Console.WriteLine("Creating organization");
-                BaseClass.setupApplication(driver);
-                login.UAT(driver);
-                organization.AddOrganization(driver);
-                organization.AddOrganizationDetails(driver);
-                save.SaveOnly(driver);
-            }
-
-            else if (answer == 3)
-            {
-                Console.WriteLine("Creating demand");
-                BaseClass.setupApplication(driver);
-                login.UAT(driver);
-                demands.AddDemand(driver);
-                save.SaveOnly(driver);
-            }
-
-            else
-            {
-                Console.WriteLine("Closing");
-                Environment.Exit(0);
-               
-            }
-
-            
-               
-                     
+                    break;
+            }        
             //BaseClass.closeApplication(driver);
         }
     }
