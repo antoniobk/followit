@@ -85,7 +85,7 @@ namespace FollowIT___Automation
         {
             Console.WriteLine(" ===== Saving ===== ");
             driver.FindElement(By.XPath("//button[@data-testscript='SaveButton']")).Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
         }
 
         public void AddAction(IWebDriver driver)
@@ -106,7 +106,7 @@ namespace FollowIT___Automation
             Console.WriteLine(" ===== Adding tags ===== ");           
             driver.FindElement(By.XPath("//li[@data-testscript='TagsTab']")).Click();
             driver.FindElement(By.XPath("//input[@data-testscript='CheckBoxTag']")).Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
         }
 
         public void AddBillingInformation(IWebDriver driver)

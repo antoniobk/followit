@@ -19,7 +19,7 @@ namespace FollowIT___Automation
 
         public void SaveAndClose(IWebDriver driver)
         {
-            driver.FindElement(By.XPath("//button[@data-testscript='SaveCloseButton']")).Click();
+            driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div/div[2]/div/div/div[6]/div/div[2]/footer-action-buttons/div/button[2]")).Click();
         }
         
     }
