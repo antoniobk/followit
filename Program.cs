@@ -11,8 +11,9 @@ namespace FollowIT___Automation
         {
             
             Console.Title = "Follow IT - automated tester";
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Green;
             int answer;
+       
 
             do
             {
@@ -34,7 +35,7 @@ namespace FollowIT___Automation
             {
                 case 1:
                     BaseClass.setupApplication(driver);
-                    Console.WriteLine("Creating Candidate");
+                    Console.WriteLine(" ***** Creating Candidate ***** ");
                     Login.UAT(driver);
                     Candidate.AddNewCandidate(driver);
                     Candidate.AddCandidateDetails(driver);
@@ -45,7 +46,7 @@ namespace FollowIT___Automation
                     Save.SaveAndClose(driver);
                     break;
                 case 2:
-                    Console.WriteLine("Creating organization");
+                    Console.WriteLine(" ***** Creating organization ***** \n");
                     BaseClass.setupApplication(driver);
                     Login.UAT(driver);
                     Organizations.AddOrganization(driver);

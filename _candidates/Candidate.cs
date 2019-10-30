@@ -34,7 +34,6 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//input[@data-testscript='Lastname']")).SendKeys(lastName);
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonCheckCandidate']")).Click();
             Thread.Sleep(3000);
-
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddCandidate']")).Click();
             Thread.Sleep(3000);
         }
@@ -43,34 +42,31 @@ namespace FollowIT___Automation
         {
 
 
-            Console.WriteLine(" ===== Adding general info ===== ");
+            Console.WriteLine(" ===== Adding general information ===== ");
             driver.FindElement(By.XPath("//input[@data-testscript='PlaceOfBirth']")).SendKeys(placeOfBirth);
             driver.FindElement(By.XPath("//input[@name='birthdate']")).SendKeys(date);
             Thread.Sleep(2000);
-
             driver.FindElement(By.XPath("//div[@data-testscript='Nationality']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'American')]")).Click();
             driver.FindElement(By.XPath("//div[@data-testscript='Type']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'Employee Consulant')]")).Click();
-
             driver.FindElement(By.XPath("//input[@data-testscript='Cellphone']")).SendKeys("+32 " + cellPhoneNumber);
-
             Thread.Sleep(3000);
             //driver.FindElement(By.XPath("")).SendKeys(email);
 
-            Console.WriteLine(" ===== Adding address info ===== ");
+            Console.WriteLine(" ===== Adding address ===== ");
             driver.FindElement(By.Name("street")).SendKeys(street);
             driver.FindElement(By.Name("city")).SendKeys(city);
             driver.FindElement(By.Name("zipCode")).SendKeys(zipCode);
             driver.FindElement(By.XPath("//div[@data-testscript='Country']")).Click();
             driver.FindElement(By.XPath("//span[@class='ng-binding ng-scope'][contains(text(),'Belgium')]")).Click();
-
+            Console.WriteLine(" ===== Adding origin =====");
             driver.FindElement(By.XPath("//div[@data-testscript='Origin']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'Stepstone')]")).Click();
 
 
 
-
+            Console.WriteLine(" ===== Adding work details =====");
             driver.FindElement(By.XPath("//input[@data-testscript='WorkTitle']")).SendKeys("Ontwikkelaar");
            // driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
 
@@ -83,7 +79,6 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddAction']")).Click();
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//div[@data-testscript='ActionType']")).Click();
-
             driver.FindElement(By.XPath("//span[contains(text(),'Email')]")).Click();
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonSaveAction']")).Click();
             Thread.Sleep(2000);

@@ -18,13 +18,12 @@ namespace FollowIT___Automation
 
         public static void AddOrganization(IWebDriver driver)
         {
+            Console.WriteLine(" ===== Adding organization =====");
             driver.FindElement(By.XPath("//li[@data-testscript='Recruitment']")).Click();
             Thread.Sleep(1000);
             driver.FindElement(By.XPath("//li[@data-testscript='Organizations']")).Click();
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//button[@name='new'][contains(text(),'Add')]")).Click();
-
-
             driver.FindElement(By.Name("name")).SendKeys(organizationName);
             driver.FindElement(By.XPath("//button[@ng-click='check()']")).Click();
             Thread.Sleep(3000);
@@ -33,17 +32,37 @@ namespace FollowIT___Automation
         }
 
         public static void AddOrganizationDetails(IWebDriver driver)
-        {   //general
+        {   Console.WriteLine(" ===== Adding general information ===== ");
             driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isManuallyValidated']")).Click();
             driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isPartner']")).Click();
             driver.FindElement(By.XPath("//input[@name='website']")).SendKeys($"https://www.{organizationWebsite}.be");
             driver.FindElement(By.XPath("//input[@name='tradeName']")).SendKeys($"{organizationWebsite}");
             driver.FindElement(By.XPath("//input[@name='phone']")).SendKeys("+32 " + organizationPhoneNumber);
 
-            //sales
-            driver.FindElement(By.XPath("//input[@name='salesLead']")).SendKeys($"{firstName} {lastName}");
+            Console.WriteLine(" ===== Adding sales information ===== ");
+            driver.FindElement(By.XPath("//input[@name='salesLead']")).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");
+            Save.SaveOnly(driver);
+            Random random = new Random();
+            string[] addressTypeArray = new string[4] { "home", "business", "billing", "shipping" };
+            int index = random.Next(addressTypeArray.Length);
 
+            Console.WriteLine(" ===== Adding address =====");
+            driver.FindElement(By.XPath("//button[@ng-click='showLeftFooterButtonsClicked()']")).Click();
+            driver.FindElement(By.XPath("//button[@name='addAddress']")).Click();
+            driver.FindElement(By.XPath("//input[@name='addressType']")).SendKeys(addressTypeArray[index]);
+            driver.FindElement(By.XPath("//input[@name='street']")).SendKeys(organizationStreet);
+            driver.FindElement(By.XPath("//input[@name='city']")).SendKeys(organizationCity);
+            driver.FindElement(By.XPath("//input[@name='zipCode']")).SendKeys(organizationZipCode);
+            driver.FindElement(By.XPath("//textarea[@ng-model='address.extraInfo']")).SendKeys("Extra info here..");
+            driver.FindElement(By.XPath("//button[@name='saveAdress']")).Click();
 
+            Console.WriteLine(" ===== Adding contact person =====");
+            driver.FindElement(By.XPath("//button[@name='addContactperson']")).Click();
+            driver.FindElement(By.XPath("")).SendKeys("");
+            driver.FindElement(By.XPath("")).SendKeys("");
+            driver.FindElement(By.XPath("")).SendKeys("");
+            driver.FindElement(By.XPath("")).SendKeys("");
+            driver.FindElement(By.XPath("")).SendKeys("");
         }
 
 
