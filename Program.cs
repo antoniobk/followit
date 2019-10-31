@@ -51,6 +51,8 @@ namespace FollowIT___Automation
                     Login.UAT(driver);
                     Organizations.AddOrganization(driver);
                     Organizations.AddOrganizationDetails(driver);
+                    Organizations.AddOrganizationAddress(driver);
+                    Organizations.AddOrganizationContactPerson(driver);
                     Save.SaveOnly(driver);
                     break;
                 case 3:

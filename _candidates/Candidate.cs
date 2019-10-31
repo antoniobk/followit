@@ -55,7 +55,7 @@ namespace FollowIT___Automation
             //driver.FindElement(By.XPath("")).SendKeys(email);
 
             Console.WriteLine(" ===== Adding address ===== ");
-            driver.FindElement(By.Name("street")).SendKeys(street);
+            driver.FindElement(By.Name("street")).SendKeys(street);           
             driver.FindElement(By.Name("city")).SendKeys(city);
             driver.FindElement(By.Name("zipCode")).SendKeys(zipCode);
             driver.FindElement(By.XPath("//div[@data-testscript='Country']")).Click();
@@ -65,9 +65,11 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//span[contains(text(),'Stepstone')]")).Click();
 
 
-
+            Random random = new Random();
+            string[] titleArray = new string[5] { "Tester", ".NET developer", "Architect", "Security analist", "Java developer" };
+            int index = random.Next(titleArray.Length);
             Console.WriteLine(" ===== Adding work details =====");
-            driver.FindElement(By.XPath("//input[@data-testscript='WorkTitle']")).SendKeys("Ontwikkelaar");
+            driver.FindElement(By.XPath("//input[@data-testscript='WorkTitle']")).SendKeys(titleArray[index]);
            // driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
 
         }
@@ -107,6 +109,14 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//input[@name='name']")).SendKeys($"{firstName}Company name here");
             driver.FindElement(By.XPath("//input[@name='juridicalForm']")).SendKeys(juridicalFormsArray[index]);
             Thread.Sleep(1000);
+        }
+
+        public static void AddProposal(IWebDriver driver)
+        {
+            driver.FindElement(By.XPath("//li[@data-testscript='ProposalTab']")).Click();
+            driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddProposal']")).Click();
+            
+             
         }
 
 

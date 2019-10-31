@@ -32,7 +32,8 @@ namespace FollowIT___Automation
         }
 
         public static void AddOrganizationDetails(IWebDriver driver)
-        {   Console.WriteLine(" ===== Adding general information ===== ");
+        {
+            Console.WriteLine(" ===== Adding general information ===== ");
             driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isManuallyValidated']")).Click();
             driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isPartner']")).Click();
             driver.FindElement(By.XPath("//input[@name='website']")).SendKeys($"https://www.{organizationWebsite}.be");
@@ -42,10 +43,15 @@ namespace FollowIT___Automation
             Console.WriteLine(" ===== Adding sales information ===== ");
             driver.FindElement(By.XPath("//input[@name='salesLead']")).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");
             Save.SaveOnly(driver);
+
+        }
+
+        public static void AddOrganizationAddress(IWebDriver driver)
+        {
+
             Random random = new Random();
             string[] addressTypeArray = new string[4] { "home", "business", "billing", "shipping" };
             int index = random.Next(addressTypeArray.Length);
-
             Console.WriteLine(" ===== Adding address =====");
             driver.FindElement(By.XPath("//button[@ng-click='showLeftFooterButtonsClicked()']")).Click();
             driver.FindElement(By.XPath("//button[@name='addAddress']")).Click();
@@ -57,6 +63,10 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//button[@name='saveAdress']")).Click();
             Thread.Sleep(2000);
 
+        }
+
+        public static void AddOrganizationContactPerson(IWebDriver driver)
+        {
             Console.WriteLine(" ===== Adding contact person =====");
             driver.FindElement(By.XPath("//button[@name='addContactperson']")).Click();
             driver.FindElement(By.XPath("//input[@ng-model='cp.firstName']")).SendKeys(contactPersonFirstName);
@@ -64,12 +74,12 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("/html/body/div[1]/div/div/form/div/div[2]/div[4]/div/div/div/div[1]/span")).Click();
 
             //select random male or female in gender dropdown
-            Random rand = new Random();
-            int maleFemale = rand.Next(0, 10);
+            Random random = new Random();
+            int maleFemale = random.Next(0, 10);
             string male = "//span[@ng-bind='sex.value'][contains(text(), 'Male')]";
             string female = "//span[@ng-bind='sex.value'][contains(text(), 'Female')]";
-            
-            if(maleFemale > 5)
+
+            if (maleFemale > 5)
             {
                 driver.FindElement(By.XPath($"{male}")).Click();
             }
@@ -78,6 +88,8 @@ namespace FollowIT___Automation
             {
                 driver.FindElement(By.XPath($"{female}")).Click();
             }
+
+            driver.FindElement(By.XPath("//button[@name='saveAdress']")).Click();
 
         }
 
