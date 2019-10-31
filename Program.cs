@@ -28,7 +28,7 @@ namespace FollowIT___Automation
             } while (answer < 0 || answer > 3);
 
 
-            IWebDriver driver = new ChromeDriver("C:/ChromeDriver");
+            IWebDriver driver = new ChromeDriver("C:/chromedriver");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
             switch (answer)
@@ -54,10 +54,11 @@ namespace FollowIT___Automation
                     Save.SaveOnly(driver);
                     break;
                 case 3:
-                    Console.WriteLine("Creating demand");
+                    Console.WriteLine(" ***** Creating demand ***** \n");
                     BaseClass.setupApplication(driver);
                     Login.UAT(driver);
                     Demands.AddDemand(driver);
+                    Demands.AddDemandDetails(driver);
                     Save.SaveOnly(driver);
                     break;
                 default:

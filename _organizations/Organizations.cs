@@ -55,14 +55,30 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//input[@name='zipCode']")).SendKeys(organizationZipCode);
             driver.FindElement(By.XPath("//textarea[@ng-model='address.extraInfo']")).SendKeys("Extra info here..");
             driver.FindElement(By.XPath("//button[@name='saveAdress']")).Click();
+            Thread.Sleep(2000);
 
             Console.WriteLine(" ===== Adding contact person =====");
             driver.FindElement(By.XPath("//button[@name='addContactperson']")).Click();
-            driver.FindElement(By.XPath("")).SendKeys("");
-            driver.FindElement(By.XPath("")).SendKeys("");
-            driver.FindElement(By.XPath("")).SendKeys("");
-            driver.FindElement(By.XPath("")).SendKeys("");
-            driver.FindElement(By.XPath("")).SendKeys("");
+            driver.FindElement(By.XPath("//input[@ng-model='cp.firstName']")).SendKeys(contactPersonFirstName);
+            driver.FindElement(By.XPath("//input[@ng-model='cp.lastName']")).SendKeys(contactPersonLastNaME);
+            driver.FindElement(By.XPath("/html/body/div[1]/div/div/form/div/div[2]/div[4]/div/div/div/div[1]/span")).Click();
+
+            //select random male or female in gender dropdown
+            Random rand = new Random();
+            int maleFemale = rand.Next(0, 10);
+            string male = "//span[@ng-bind='sex.value'][contains(text(), 'Male')]";
+            string female = "//span[@ng-bind='sex.value'][contains(text(), 'Female')]";
+            
+            if(maleFemale > 5)
+            {
+                driver.FindElement(By.XPath($"{male}")).Click();
+            }
+
+            else
+            {
+                driver.FindElement(By.XPath($"{female}")).Click();
+            }
+
         }
 
 

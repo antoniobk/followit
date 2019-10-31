@@ -14,6 +14,10 @@ namespace FollowIT___Automation
         public static string organizationStreet = new Bogus.DataSets.Address("nl_BE").StreetName();
         public static string organizationCity = new Bogus.DataSets.Address("nl_BE").City();
         public static string organizationZipCode = new Bogus.DataSets.Address("nl_BE").ZipCode();
-        
+
+        public static string contactPersonFirstName = new Bogus.DataSets.Name("nl_BE").FirstName();
+        public static string contactPersonLastNaME = new Bogus.DataSets.Name("nl_BE").LastName();
+
+
     }
 }

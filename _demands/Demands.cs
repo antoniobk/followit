@@ -26,6 +26,8 @@ namespace FollowIT___Automation
             
             driver.FindElement(By.XPath("//input[@name='title']")).SendKeys("Title");
             driver.FindElement(By.XPath("//input[@name='PostingTitle']")).SendKeys("PostingTitle");
+            driver.FindElement(By.XPath(""));
+
 
 
         }
