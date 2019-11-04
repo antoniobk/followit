@@ -18,7 +18,7 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//li[@data-testscript='Recruitment']")).Click();
             driver.FindElement(By.XPath("//li[@data-testscript='Demands']")).Click();
             driver.FindElement(By.XPath("//button[@ng-click='addDemand()']")).Click();
-            Console.WriteLine(duration);
+          
 
         }
 
@@ -56,18 +56,20 @@ namespace FollowIT___Automation
                     break;
             }
 
-            string[] client = new string[3] { "a", "w", "y" };
+           /* string[] client = new string[3] { "a", "w", "y" };
             int clientCharacter = random.Next(client.Length);
             
-
-
             driver.FindElement(By.XPath("//input[@ng-model='demand.selectedOrganization']")).SendKeys(client[clientCharacter]);
             Thread.Sleep(1000);
-            driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div[2]/div/div/div/div/div/div[1]/div/form/fieldset[2]/div/div/div[6]/div/div/ul/li[1]/a")).SendKeys(Keys.Enter);
+            driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div[2]/div/div/div/div/div/div[1]/div/form/fieldset[2]/div/div/div[6]/div/div/ul/li[1]/a")).SendKeys(Keys.Enter); */
 
             driver.FindElement(By.XPath("//input[@name='startDate']")).SendKeys(startingDate);
+            driver.FindElement(By.XPath("//input[@name='closingDate']")).SendKeys(closingDate);
             int maxDayPrice = random.Next(100,300);
             driver.FindElement(By.XPath("//input[@name='maximumDayprice']")).SendKeys($"€ {maxDayPrice}");
+
+            var duration = random.Next(2, 8);
+            driver.FindElement(By.XPath("//input[@name='runTime']")).SendKeys($"{duration} months");
                
 
         }

@@ -17,7 +17,7 @@ namespace FollowIT___Automation
     public class Candidate : CandidateRandomGenerator
     {
 
-
+        
 
         public static void AddNewCandidate(IWebDriver driver)
         { 
@@ -41,13 +41,17 @@ namespace FollowIT___Automation
         public static void AddCandidateDetails(IWebDriver driver)
         {
 
-
+            Random random = new Random();
             Console.WriteLine(" ===== Adding general information ===== ");
             driver.FindElement(By.XPath("//input[@data-testscript='PlaceOfBirth']")).SendKeys(placeOfBirth);
             driver.FindElement(By.XPath("//input[@name='birthdate']")).SendKeys(date);
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//div[@data-testscript='Nationality']")).Click();
-            driver.FindElement(By.XPath("//span[contains(text(),'American')]")).Click();
+
+            string[] nationality = new string[5] { "Belgian", "German", "French", "Greek", "American" };
+            int index = random.Next(nationality.Length);
+
+            driver.FindElement(By.XPath($"//span[contains(text(),'{nationality[index]}')]")).Click();
             driver.FindElement(By.XPath("//div[@data-testscript='Type']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'Employee Consulant')]")).Click();
             driver.FindElement(By.XPath("//input[@data-testscript='Cellphone']")).SendKeys("+32 " + cellPhoneNumber);
@@ -65,9 +69,9 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//span[contains(text(),'Stepstone')]")).Click();
 
 
-            Random random = new Random();
+           
             string[] titleArray = new string[5] { "Tester", ".NET developer", "Architect", "Security analist", "Java developer" };
-            int index = random.Next(titleArray.Length);
+            index = random.Next(titleArray.Length);
             Console.WriteLine(" ===== Adding work details =====");
             driver.FindElement(By.XPath("//input[@data-testscript='WorkTitle']")).SendKeys(titleArray[index]);
            // driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
