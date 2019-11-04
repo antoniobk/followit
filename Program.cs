@@ -42,6 +42,7 @@ namespace FollowIT___Automation
                     Save.SaveOnly(driver);
                     Candidate.AddAction(driver);
                     Candidate.AddTags(driver);
+                    Candidate.AddProposal(driver);
                     Candidate.AddBillingInformation(driver);
                     Save.SaveAndClose(driver);
                     break;

@@ -43,7 +43,7 @@ namespace FollowIT___Automation
             Console.WriteLine(" ===== Adding sales information ===== ");
             driver.FindElement(By.XPath("//input[@name='salesLead']")).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");
             Save.SaveOnly(driver);
-
+            
         }
 
         public static void AddOrganizationAddress(IWebDriver driver)

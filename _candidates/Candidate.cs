@@ -53,7 +53,10 @@ namespace FollowIT___Automation
 
             driver.FindElement(By.XPath($"//span[contains(text(),'{nationality[index]}')]")).Click();
             driver.FindElement(By.XPath("//div[@data-testscript='Type']")).Click();
-            driver.FindElement(By.XPath("//span[contains(text(),'Employee Consulant')]")).Click();
+
+            string[] type = new string[4] { "Freelance", "Employee Consulant", "College Student", "Unknown"};
+            index = random.Next(type.Length);
+            driver.FindElement(By.XPath($"//span[contains(text(),'{type[index]}')]")).Click();
             driver.FindElement(By.XPath("//input[@data-testscript='Cellphone']")).SendKeys("+32 " + cellPhoneNumber);
             Thread.Sleep(3000);
             //driver.FindElement(By.XPath("")).SendKeys(email);
@@ -64,13 +67,19 @@ namespace FollowIT___Automation
             driver.FindElement(By.Name("zipCode")).SendKeys(zipCode);
             driver.FindElement(By.XPath("//div[@data-testscript='Country']")).Click();
             driver.FindElement(By.XPath("//span[@class='ng-binding ng-scope'][contains(text(),'Belgium')]")).Click();
+
+
             Console.WriteLine(" ===== Adding origin =====");
             driver.FindElement(By.XPath("//div[@data-testscript='Origin']")).Click();
-            driver.FindElement(By.XPath("//span[contains(text(),'Stepstone')]")).Click();
+
+            string[] origin = new string[5] { "Linkedin", "Monster", "Stepstone", "Other", "Unknown" };
+            index = random.Next(origin.Length);
+
+            driver.FindElement(By.XPath($"//span[contains(text(),'{origin[index]}')]")).Click();
 
 
            
-            string[] titleArray = new string[5] { "Tester", ".NET developer", "Architect", "Security analist", "Java developer" };
+            string[] titleArray = new string[6] { "Tester", ".NET developer", "Architect", "Security analist", "Java developer", "Penetration tester"};
             index = random.Next(titleArray.Length);
             Console.WriteLine(" ===== Adding work details =====");
             driver.FindElement(By.XPath("//input[@data-testscript='WorkTitle']")).SendKeys(titleArray[index]);
@@ -80,12 +89,16 @@ namespace FollowIT___Automation
 
         public static void AddAction(IWebDriver driver)
         {
+            Random random = new Random();
             Console.WriteLine(" ===== Adding action ===== ");
             driver.FindElement(By.XPath("//li[@data-testscript='ActionsTab']")).Click();
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddAction']")).Click();
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//div[@data-testscript='ActionType']")).Click();
-            driver.FindElement(By.XPath("//span[contains(text(),'Email')]")).Click();
+
+            string[] actionType = new string[4] { "Email", "Mailing", "LinkedIn", "Interview bij ons" };
+            int index = random.Next(actionType.Length);
+            driver.FindElement(By.XPath($"//span[contains(text(),'{actionType[index]}')]")).Click();
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonSaveAction']")).Click();
             Thread.Sleep(2000);
         }
@@ -117,11 +130,36 @@ namespace FollowIT___Automation
 
         public static void AddProposal(IWebDriver driver)
         {
+
             driver.FindElement(By.XPath("//li[@data-testscript='ProposalTab']")).Click();
             driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddProposal']")).Click();
-            
-             
+            Random random = new Random();
+            int priceIn = random.Next(1, 100);
+            driver.FindElement(By.XPath("//input[@name='PostingTitle']")).Clear();
+            driver.FindElement(By.XPath("//input[@name='PostingTitle']")).SendKeys(priceIn.ToString());
+            string[] source = new string[4] { "LinkedIn", "FollowIt", "Third Party", "Jobboards" };
+            int index = random.Next(source.Length);
+
+            driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div/div[2]/div/div/div[4]/div/div/div[1]/div/div/div/form/div/fieldset[2]/div/div[6]/div[1]/div[1]/div/div[1]/span/span[2]/span")).Click();
+            driver.FindElement(By.XPath($"//span[contains(text(),'{source[index]}')]")).Click();
+
+            string[] action = new string[4] { "Email", "InMail", "Face To Face", "Other" };
+            index = random.Next(action.Length);
+
+            driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div/div[2]/div/div/div[4]/div/div/div[1]/div/div/div/form/div/fieldset[2]/div/div[6]/div[1]/div[2]/div/div[1]/span/span[2]/span")).Click();
+            driver.FindElement(By.XPath($"//span[contains(text(),'{action[index]}')]")).Click();
+           
+
         }
+
+      /*  public static void AddDayPrice(IWebDriver driver)
+        {
+            Random random = new Random();
+
+            driver.FindElement(By.XPath("//button[@ng-click='addDayPrice()']")).Click();
+            driver.FindElement(By.XPath(""))
+        }*/
+
 
 
 
