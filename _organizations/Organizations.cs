@@ -39,9 +39,7 @@ namespace FollowIT___Automation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to add new organization");
-            }
-
-          
+            }         
 
         }
 
@@ -69,7 +67,6 @@ namespace FollowIT___Automation
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to add organization details");
             }
-
            
         }
 
@@ -98,9 +95,7 @@ namespace FollowIT___Automation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to add organization address");
-            }
-
-            
+            }      
 
         }
 
@@ -142,9 +137,6 @@ namespace FollowIT___Automation
                 Console.WriteLine("Failed to add organization contact person");
             }
            
-
-
-
         }
 
 

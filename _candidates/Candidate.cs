@@ -39,11 +39,7 @@ namespace FollowIT___Automation
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to add new candidate");
             }
-
-           
-            
-
-            
+               
         }
 
 
@@ -83,13 +79,10 @@ namespace FollowIT___Automation
         public static void AddContactDetails(IWebDriver driver)
         {
             try
-            {
-                
-              
+            {                        
                 driver.FindElement(By.XPath("//input[@data-testscript='Cellphone']")).SendKeys("+32 " + cellPhoneNumber);
                 Thread.Sleep(3000);
                 //driver.FindElement(By.XPath("")).SendKeys(email);
-
             }
 
             catch (Exception)
@@ -143,10 +136,6 @@ namespace FollowIT___Automation
         }
 
 
-
-
-
-
         public static void AddAction(IWebDriver driver)
         {
 
@@ -172,7 +161,6 @@ namespace FollowIT___Automation
                 Console.WriteLine(" ==== Failed to add action ==== ");
             }
 
-
         }
 
         
@@ -182,6 +170,7 @@ namespace FollowIT___Automation
 
                 Console.WriteLine(" ===== Adding tags ===== ");
                 driver.FindElement(By.XPath("//li[@data-testscript='TagsTab']")).Click();
+                Thread.Sleep(1000);
                 driver.FindElement(By.XPath("//input[@data-testscript='CheckBoxTag']")).Click();
                 Thread.Sleep(4000);
             }
@@ -190,9 +179,7 @@ namespace FollowIT___Automation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" ===== Failed to add candidate tags ===== ");
-            }
-
-            
+            }           
 
         }
 
@@ -230,7 +217,6 @@ namespace FollowIT___Automation
         } */
 
 
-
         public static void AddBillingInformation(IWebDriver driver)
         {
 
@@ -258,19 +244,10 @@ namespace FollowIT___Automation
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" ===== Failed to add billing information ===== ");
             }
-
           
-       
 
         }
-
-        
-    
-        
-
-
-
-
+      
 
     }
 }

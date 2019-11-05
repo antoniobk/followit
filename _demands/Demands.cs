@@ -28,10 +28,8 @@ namespace FollowIT___Automation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to add new demand");
-            }
-         
+            }        
           
-
         }
         
         public static void AddDemandDetails(IWebDriver driver)
