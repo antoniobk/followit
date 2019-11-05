@@ -7,31 +7,51 @@ using OpenQA.Selenium.Support;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using NUnit.Framework;
 
 
 namespace FollowIT___Automation
 {
+    [TestFixture]
     class BaseClass
     {
-
+        [SetUp]
         //Before Class
         public static void setupApplication(IWebDriver driver)
         {
-            Console.WriteLine(" ===== Browser Session Started ===== ");
-            
-            driver.Navigate().GoToUrl("https://t4t-followit-uat.azurewebsites.net");
-            driver.Manage().Window.Maximize();
+            try
+            {
+                Console.WriteLine(" ===== Browser Session Started ===== ");
 
-            Console.WriteLine(" ===== Application Started ===== ");
+                driver.Navigate().GoToUrl("https://t4t-followit-uat.azurewebsites.net");
+                driver.Manage().Window.Maximize();
+
+                Console.WriteLine(" ===== Application Started ===== ");
+            }
+
+            catch (Exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to open url");
+            }
         }
 
         //After Class
 
         public static void closeApplication(IWebDriver driver)
         {
-            driver.Close();
-           Console.WriteLine("=====Browser Session End=====");
 
+            try
+            {
+                driver.Close();
+                Console.WriteLine("=====Browser Session End=====");
+            }
+
+            catch (Exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to close browser");
+            }
         }
 
     }
