@@ -17,8 +17,8 @@ namespace FollowIT___Automation
     public class Candidate : CandidateRandomGenerator
     {
 
-       
-        public static void AddNewCandidate(IWebDriver driver)
+        Save save = new Save();
+        public void AddNewCandidate(IWebDriver driver)
         { 
             try {
                 Console.WriteLine(" ===== Adding new candidate ===== ");
@@ -38,12 +38,13 @@ namespace FollowIT___Automation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to add new candidate");
+            
             }
                
         }
 
 
-        public static void AddGeneralInfo(IWebDriver driver)
+        public void AddGeneralInfo(IWebDriver driver)
         {
             try
             {
@@ -71,12 +72,12 @@ namespace FollowIT___Automation
             catch (Exception)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ===== Failed to add general info ===== ");
+                Console.WriteLine(" ===== Failed to add general information ===== ");
             }
 
         }
 
-        public static void AddContactDetails(IWebDriver driver)
+        public void AddContactDetails(IWebDriver driver)
         {
             try
             {                        
@@ -94,7 +95,7 @@ namespace FollowIT___Automation
         }
 
 
-        public static void AddCandidateAddress(IWebDriver driver) {
+        public void AddCandidateAddress(IWebDriver driver) {
 
             try
             {
@@ -123,7 +124,7 @@ namespace FollowIT___Automation
                 Console.WriteLine(" ===== Adding work details =====");
                 driver.FindElement(By.XPath("//input[@data-testscript='WorkTitle']")).SendKeys(titleArray[index]);
                 // driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
-                Save.SaveOnly(driver);
+                save.SaveOnly(driver);
             }
 
             catch (Exception)
@@ -136,7 +137,7 @@ namespace FollowIT___Automation
         }
 
 
-        public static void AddAction(IWebDriver driver)
+        public void AddAction(IWebDriver driver)
         {
 
             try {
@@ -164,7 +165,7 @@ namespace FollowIT___Automation
         }
 
         
-        public static void AddTags(IWebDriver driver)
+        public void AddTags(IWebDriver driver)
         {
             try {
 
@@ -183,13 +184,14 @@ namespace FollowIT___Automation
 
         }
 
-      /*  public static void AddProposal(IWebDriver driver)
+        public static void AddProposal(IWebDriver driver)
         {
             try {
 
+                Random random = new Random();
                 driver.FindElement(By.XPath("//li[@data-testscript='ProposalTab']")).Click();
                 driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddProposal']")).Click();
-                Random random = new Random();
+                
                 int priceIn = random.Next(1, 100);
                 driver.FindElement(By.XPath("//input[@name='PostingTitle']")).Clear();
                 driver.FindElement(By.XPath("//input[@name='PostingTitle']")).SendKeys(priceIn.ToString());
@@ -198,6 +200,7 @@ namespace FollowIT___Automation
 
                 driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div/div[2]/div/div/div[4]/div/div/div[1]/div/div/div/form/div/fieldset[2]/div/div[6]/div[1]/div[1]/div/div[1]/span/span[2]/span")).Click();
                 driver.FindElement(By.XPath($"//span[contains(text(),'{source[index]}')]")).Click();
+                Thread.Sleep(1000);
 
                 string[] action = new string[4] { "Email", "InMail", "Face To Face", "Other" };
                 index = random.Next(action.Length);
@@ -214,10 +217,10 @@ namespace FollowIT___Automation
             }
 
            
-        } */
+        }
 
 
-        public static void AddBillingInformation(IWebDriver driver)
+        public void AddBillingInformation(IWebDriver driver)
         {
 
             try

@@ -16,7 +16,7 @@ namespace FollowIT___Automation
    public class Login
     {
         [Test]
-        public static void UAT(IWebDriver driver)
+        public void UAT(IWebDriver driver)
         {
                 
             try {

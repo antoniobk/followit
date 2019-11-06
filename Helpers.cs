@@ -13,7 +13,7 @@ namespace FollowIT___Automation
 {
     class Helpers
     {
-        public static void OpenRecruitmentModule(IWebDriver driver)
+        public void OpenRecruitmentModule(IWebDriver driver)
         {
             driver.FindElement(By.XPath("//li[@data-testscript='Recruitment']")).Click();
             Thread.Sleep(2000);

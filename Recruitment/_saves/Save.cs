@@ -15,7 +15,7 @@ namespace FollowIT___Automation
     {
 
         
-        public static void SaveOnly(IWebDriver driver)
+        public void SaveOnly(IWebDriver driver)
         {
             try
             {
@@ -27,14 +27,14 @@ namespace FollowIT___Automation
             catch (Exception)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to save only");
+                Console.WriteLine(" ===== Failed to save ===== ");
             }
 
 
         }
 
 
-        public static void SaveAndClose(IWebDriver driver)
+        public void SaveAndClose(IWebDriver driver)
         {
 
             try
@@ -45,7 +45,7 @@ namespace FollowIT___Automation
             catch (Exception)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to save and close");
+                Console.WriteLine(" ===== Failed to save ==== ");
             }
 
 

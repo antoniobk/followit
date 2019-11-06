@@ -16,8 +16,8 @@ namespace FollowIT___Automation
     public class Organizations : OrganizationsRandomGenerator
     {
 
-       
-        public static void AddOrganization(IWebDriver driver)
+        Save save = new Save();
+        public void AddOrganization(IWebDriver driver)
         {
 
            try
@@ -39,12 +39,13 @@ namespace FollowIT___Automation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to add new organization");
+                System.Environment.Exit(1);
             }         
 
         }
 
 
-        public static void AddOrganizationDetails(IWebDriver driver)
+        public void AddOrganizationDetails(IWebDriver driver)
         {
 
             try
@@ -58,7 +59,7 @@ namespace FollowIT___Automation
 
                 Console.WriteLine(" ===== Adding sales information ===== ");
                 driver.FindElement(By.XPath("//input[@name='salesLead']")).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");
-                Save.SaveOnly(driver);
+                save.SaveOnly(driver);
 
             }
 
@@ -71,7 +72,7 @@ namespace FollowIT___Automation
         }
 
      
-        public static void AddOrganizationAddress(IWebDriver driver)
+        public void AddOrganizationAddress(IWebDriver driver)
         {
             try
             {
@@ -100,7 +101,7 @@ namespace FollowIT___Automation
         }
 
 
-        public static void AddOrganizationContactPerson(IWebDriver driver)
+        public void AddOrganizationContactPerson(IWebDriver driver)
         {
 
             try
@@ -135,6 +136,7 @@ namespace FollowIT___Automation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to add organization contact person");
+               
             }
            
         }

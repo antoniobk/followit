@@ -13,12 +13,12 @@ namespace FollowIT___Automation
     
     public class Demands : DemandsRandomGenerator
     {
-        public static void AddDemand(IWebDriver driver)
+        public void AddDemand(IWebDriver driver)
         {
 
             try
             {
-
+                Console.WriteLine("Adding new demand");
                 driver.FindElement(By.XPath("//li[@data-testscript='Demands']")).Click();
                 driver.FindElement(By.XPath("//button[@ng-click='addDemand()']")).Click();
 
@@ -32,12 +32,14 @@ namespace FollowIT___Automation
           
         }
         
-        public static void AddDemandDetails(IWebDriver driver)
+        public void AddDemandDetails(IWebDriver driver)
         {
 
             try
             {
                 Random random = new Random();
+
+                Console.WriteLine("Adding general information");
                 string[] titleArray = new string[5] { "PHP developer", "Security Analist", "Java developer", "Automation tester", "React developer" };
                 int index = random.Next(titleArray.Length);
                 var title = titleArray[index];
@@ -69,26 +71,26 @@ namespace FollowIT___Automation
                         break;
                 }
 
-                /* string[] client = new string[3] { "a", "w", "y" };
+                 string[] client = new string[3] { "a", "w", "y" };
                  int clientCharacter = random.Next(client.Length);
 
                  driver.FindElement(By.XPath("//input[@ng-model='demand.selectedOrganization']")).SendKeys(client[clientCharacter]);
                  Thread.Sleep(1000);
-                 driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div[2]/div/div/div/div/div/div[1]/div/form/fieldset[2]/div/div/div[6]/div/div/ul/li[1]/a")).SendKeys(Keys.Enter); */
+                 driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div[2]/div/div/div/div/div/div[1]/div/form/fieldset[2]/div/div/div[6]/div/div/ul/li[1]/a")).SendKeys(Keys.Enter);
 
-                driver.FindElement(By.XPath("//input[@name='startDate']")).SendKeys(startingDate);
-                driver.FindElement(By.XPath("//input[@name='closingDate']")).SendKeys(closingDate);
-                int maxDayPrice = random.Next(100, 300);
-                driver.FindElement(By.XPath("//input[@name='maximumDayprice']")).SendKeys($"€ {maxDayPrice}");
+                 driver.FindElement(By.XPath("//input[@name='startDate']")).SendKeys(startingDate);
+                 driver.FindElement(By.XPath("//input[@name='closingDate']")).SendKeys(closingDate);
+                 int maxDayPrice = random.Next(100, 300);
+                 driver.FindElement(By.XPath("//input[@name='maximumDayprice']")).SendKeys($"€ {maxDayPrice}");
 
-                var duration = random.Next(2, 8);
-                driver.FindElement(By.XPath("//input[@name='runTime']")).SendKeys($"{duration} months");
+                 var duration = random.Next(2, 8);
+                 driver.FindElement(By.XPath("//input[@name='runTime']")).SendKeys($"{duration} months");
             }
 
             catch (Exception)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to add demand details");
+                Console.WriteLine("Failed to add general information");
             }
 
 

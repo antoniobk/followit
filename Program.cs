@@ -12,8 +12,14 @@ namespace FollowIT___Automation
     {
         static void Main(string[] args)
         {
-           
-            
+
+            Candidate candidate = new Candidate();
+            Organizations organization = new Organizations();
+            Demands demand = new Demands();
+            Login login = new Login();
+            Save save = new Save();
+            Helpers helper = new Helpers();
+            BaseClass baseclass = new BaseClass();
             Console.Title = "Follow IT - automated tester";
             Console.ForegroundColor = ConsoleColor.Green;
             int answer;
@@ -39,84 +45,78 @@ namespace FollowIT___Automation
             switch (answer)
             {
                 case 1:
-
-                    BaseClass.setupApplication(driver);
-                    Console.WriteLine(" ***** Creating Candidate ***** ");
-                    Login.UAT(driver);
-                    Helpers.OpenRecruitmentModule(driver);
-                    Candidate.AddNewCandidate(driver);
-                    Candidate.AddGeneralInfo(driver);
-                    Candidate.AddContactDetails(driver);
-                    Candidate.AddCandidateAddress(driver);                   
-                    Candidate.AddAction(driver);
-                    Candidate.AddTags(driver);
+                   
+                    baseclass.setupApplication(driver);                  
+                    login.UAT(driver);
+                    helper.OpenRecruitmentModule(driver);
+                    candidate.AddNewCandidate(driver);
+                    candidate.AddGeneralInfo(driver);
+                    candidate.AddContactDetails(driver);
+                    candidate.AddCandidateAddress(driver);                   
+                    candidate.AddAction(driver);
+                    candidate.AddTags(driver);
                    // Candidate.AddProposal(driver);
-                    Candidate.AddBillingInformation(driver);
-                    Save.SaveAndClose(driver);
+                    candidate.AddBillingInformation(driver);
+                    save.SaveAndClose(driver);
                     break;
 
 
                 case 2:
-                    Console.WriteLine(" ***** Creating organization ***** \n");
-                    BaseClass.setupApplication(driver);
-                    Login.UAT(driver);
-                    Helpers.OpenRecruitmentModule(driver);
-                    Organizations.AddOrganization(driver);
-                    Organizations.AddOrganizationDetails(driver);
-                    Organizations.AddOrganizationAddress(driver);
-                    Organizations.AddOrganizationContactPerson(driver);
-                    Save.SaveAndClose(driver);
+                    
+                    baseclass.setupApplication(driver);
+                    login.UAT(driver);
+                    helper.OpenRecruitmentModule(driver);
+                    organization.AddOrganization(driver);
+                    organization.AddOrganizationDetails(driver);
+                    organization.AddOrganizationAddress(driver);
+                    organization.AddOrganizationContactPerson(driver);
+                    save.SaveAndClose(driver);
                     break;
 
 
                 case 3:
-                    Console.WriteLine(" ***** Creating demand ***** \n");
-                    BaseClass.setupApplication(driver);
-                    Login.UAT(driver);
-                    Helpers.OpenRecruitmentModule(driver);
-                    Demands.AddDemand(driver);
-                    Demands.AddDemandDetails(driver);
-                   // Save.SaveOnly(driver);
+                    
+                    baseclass.setupApplication(driver);
+                    login.UAT(driver);
+                    helper.OpenRecruitmentModule(driver);
+                    demand.AddDemand(driver);
+                    demand.AddDemandDetails(driver);
+                    save.SaveAndClose(driver);
                     break;
                    
                 case 5:
 
-                    //candidate
-                    Console.WriteLine("Creating candidate");
-                    BaseClass.setupApplication(driver);
-                    Login.UAT(driver);
-                    Helpers.OpenRecruitmentModule(driver);
-                    Candidate.AddNewCandidate(driver);
-                    Candidate.AddGeneralInfo(driver);
-                    Candidate.AddContactDetails(driver);
-                    Candidate.AddCandidateAddress(driver);                
-                    Candidate.AddAction(driver);
-                    Candidate.AddTags(driver);
+                    baseclass.setupApplication(driver);
+                    login.UAT(driver);
+                    helper.OpenRecruitmentModule(driver);
+                    candidate.AddNewCandidate(driver);
+                    candidate.AddGeneralInfo(driver);
+                    candidate.AddContactDetails(driver);
+                    candidate.AddCandidateAddress(driver);                
+                    candidate.AddAction(driver);
+                    candidate.AddTags(driver);
                     //Candidate.AddProposal(driver);
-                    Candidate.AddBillingInformation(driver);
-                    Save.SaveAndClose(driver);
+                    candidate.AddBillingInformation(driver);
+                    save.SaveAndClose(driver);
 
-
-                    //organization
-                    Console.WriteLine("Creating organization");
-                    Organizations.AddOrganization(driver);
-                    Organizations.AddOrganizationDetails(driver);
-                    Organizations.AddOrganizationAddress(driver);
-                    Organizations.AddOrganizationContactPerson(driver);
-                    Save.SaveAndClose(driver);
+                  
+                    organization.AddOrganization(driver);
+                    organization.AddOrganizationDetails(driver);
+                    organization.AddOrganizationAddress(driver);
+                    organization.AddOrganizationContactPerson(driver);
+                    save.SaveAndClose(driver);
 
                     
-                    //demand
                     Console.WriteLine("Creating demand");
-                    Demands.AddDemand(driver);
-                    Demands.AddDemandDetails(driver);
+                    demand.AddDemand(driver);
+                    demand.AddDemandDetails(driver);
+                    save.SaveAndClose(driver);
                     break;
                 
                     
 
             }
 
-            //BaseClass.closeApplication(driver);
         }
     }
 }
