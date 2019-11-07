@@ -6,5 +6,6 @@ namespace FollowIT___Automation.Lists._dashboard
 {
     public class ListsRandomGenerator
     {
+        
     }
 }

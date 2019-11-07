@@ -38,8 +38,7 @@ namespace FollowIT___Automation
             catch (Exception)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to add new organization");
-                System.Environment.Exit(1);
+                Console.WriteLine("Failed to add new organization");             
             }         
 
         }
@@ -129,6 +128,8 @@ namespace FollowIT___Automation
                 }
 
                 driver.FindElement(By.XPath("//button[@name='saveAdress']")).Click();
+                Thread.Sleep(1000);
+                
 
             }
 
@@ -138,6 +139,9 @@ namespace FollowIT___Automation
                 Console.WriteLine("Failed to add organization contact person");
                
             }
+
+            save.SaveOnly(driver);
+           
            
         }
 

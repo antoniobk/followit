@@ -11,7 +11,7 @@ using NUnit.Framework;
 namespace FollowIT___Automation
 {
    
-    class Save
+    public class Save
     {
 
         

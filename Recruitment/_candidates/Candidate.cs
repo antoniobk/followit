@@ -126,7 +126,7 @@ namespace FollowIT___Automation
                 // driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
                 save.SaveOnly(driver);
             }
-
+                        
             catch (Exception)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -205,7 +205,7 @@ namespace FollowIT___Automation
                 string[] action = new string[4] { "Email", "InMail", "Face To Face", "Other" };
                 index = random.Next(action.Length);
 
-                driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div/div[2]/div/div/div[4]/div/div/div[1]/div/div/div/form/div/fieldset[2]/div/div[6]/div[1]/div[2]/div/div[1]/span/span[2]/span")).Click();
+                driver.FindElement(By.XPath("//div[@data-testscript='ProposalAction']")).Click();
                 driver.FindElement(By.XPath($"//span[contains(text(),'{action[index]}')]")).Click(); 
 
             }
@@ -231,6 +231,7 @@ namespace FollowIT___Automation
 
                 Console.WriteLine(" ==== Adding billing information ===== ");
                 driver.FindElement(By.XPath("//li[@data-testscript='BillingInformationTab']")).Click();
+                Thread.Sleep(1000);
                 driver.FindElement(By.XPath("//input[@name='freelancer']")).Click();
                 Thread.Sleep(2000);
                 driver.FindElement(By.XPath("//button[@data-bb-handler='confirm']")).Click();
@@ -238,6 +239,7 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath("//input[@name='name']")).SendKeys($"{firstName}Company name here");
                 driver.FindElement(By.XPath("//input[@name='juridicalForm']")).SendKeys(juridicalFormsArray[index]);
                 Thread.Sleep(1000);
+                save.SaveOnly(driver);
                 
 
             }

@@ -28,6 +28,7 @@ namespace FollowIT___Automation
             do
             {
                 Console.WriteLine("Hey there, what do you want to test?\n");
+
                 Console.WriteLine("[1] - Create candidate");
                 Console.WriteLine("[2] - Create organization");
                 Console.WriteLine("[3] - Create demand");
@@ -71,6 +72,7 @@ namespace FollowIT___Automation
                     organization.AddOrganizationAddress(driver);
                     organization.AddOrganizationContactPerson(driver);
                     save.SaveAndClose(driver);
+                    
                     break;
 
 
