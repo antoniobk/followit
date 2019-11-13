@@ -108,7 +108,7 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath("//div[@data-testscript='Country']")).Click();
                 driver.FindElement(By.XPath("//span[@class='ng-binding ng-scope'][contains(text(),'Belgium')]")).Click();
 
-
+                
                 Console.WriteLine(" ===== Adding origin =====");
                 driver.FindElement(By.XPath("//div[@data-testscript='Origin']")).Click();
 

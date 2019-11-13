@@ -90,13 +90,13 @@ namespace FollowIT___Automation
                 Thread.Sleep(2000);
 
             }
-
+                
             catch (Exception)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to add organization address");
-            }      
-
+            }
+            
         }
 
 
