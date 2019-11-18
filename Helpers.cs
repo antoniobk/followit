@@ -18,5 +18,10 @@ namespace FollowIT___Automation
             driver.FindElement(By.XPath("//li[@data-testscript='Recruitment']")).Click();
             Thread.Sleep(2000);
         }
+
+        public void OpenFinanceModule(IWebDriver driver)
+        {
+            driver.FindElement(By.XPath("//li[@data-testscript='Finance']")).Click();
+        }
     }
 }

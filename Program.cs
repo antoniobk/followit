@@ -16,6 +16,7 @@ namespace FollowIT___Automation
             Candidate candidate = new Candidate();
             Organizations organization = new Organizations();
             Demands demand = new Demands();
+            Contractdrafts contractdaft = new Contractdrafts();
             Login login = new Login();
             Save save = new Save();
             Helpers helper = new Helpers();
@@ -32,6 +33,7 @@ namespace FollowIT___Automation
                 Console.WriteLine("[1] - Create candidate");
                 Console.WriteLine("[2] - Create organization");
                 Console.WriteLine("[3] - Create demand");
+                Console.WriteLine("[4] - Create contract draft");
                 Console.WriteLine("[5] - Test all\n");
                 Console.Write("Type your choice: ");
                 answer = int.Parse(Console.ReadLine());
@@ -85,7 +87,17 @@ namespace FollowIT___Automation
                     demand.AddDemandDetails(driver);
                     save.SaveAndClose(driver);
                     break;
-                   
+
+
+                case 4:
+                    baseclass.setupApplication(driver);
+                    login.UAT(driver);
+                    helper.OpenFinanceModule(driver);
+                    contractdaft.AddNewContractDraft(driver);
+                    break;
+                    
+
+
                 case 5:
 
                     baseclass.setupApplication(driver);

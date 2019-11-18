@@ -109,7 +109,7 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath("//input[@data-testscript='ContactPersonFirstName']")).SendKeys(contactPersonFirstName);
                 driver.FindElement(By.XPath("//input[@data-testscript='ContactPersonLastName']")).SendKeys(contactPersonLastNaME);
                 driver.FindElement(By.XPath("//div[@data-testscript='ContactPersonGender']")).Click();
-                Thread.Sleep(10000);
+                Thread.Sleep(100);
 
                 //select random male or female in gender dropdown
                 Random random = new Random();
