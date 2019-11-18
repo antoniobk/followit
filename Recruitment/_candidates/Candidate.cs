@@ -184,7 +184,7 @@ namespace FollowIT___Automation
 
         }
 
-        public static void AddProposal(IWebDriver driver)
+        public void AddProposal(IWebDriver driver)
         {
             try {
 
@@ -193,19 +193,19 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddProposal']")).Click();
                 
                 int priceIn = random.Next(1, 100);
-                driver.FindElement(By.XPath("//input[@name='PostingTitle']")).Clear();
-                driver.FindElement(By.XPath("//input[@name='PostingTitle']")).SendKeys(priceIn.ToString());
+                driver.FindElement(By.XPath("//input[@data-testscript='ProposalPriceIn']")).Clear();
+                driver.FindElement(By.XPath("//input[@data-testscript='ProposalPriceIn']")).SendKeys(priceIn.ToString());
                 string[] source = new string[4] { "LinkedIn", "FollowIt", "Third Party", "Jobboards" };
                 int index = random.Next(source.Length);
 
-                driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div/div[2]/div/div/div[4]/div/div/div[1]/div/div/div/form/div/fieldset[2]/div/div[6]/div[1]/div[1]/div/div[1]/span/span[2]/span")).Click();
+                driver.FindElement(By.XPath("//span[@data-testscript='ProposalSource']")).Click();
                 driver.FindElement(By.XPath($"//span[contains(text(),'{source[index]}')]")).Click();
                 Thread.Sleep(1000);
 
                 string[] action = new string[4] { "Email", "InMail", "Face To Face", "Other" };
                 index = random.Next(action.Length);
 
-                driver.FindElement(By.XPath("//div[@data-testscript='ProposalAction']")).Click();
+                driver.FindElement(By.XPath("//span[@data-testscript='ProposalAction']")).Click();
                 driver.FindElement(By.XPath($"//span[contains(text(),'{action[index]}')]")).Click(); 
 
             }

@@ -27,11 +27,11 @@ namespace FollowIT___Automation
                 Thread.Sleep(1000);
                 driver.FindElement(By.XPath("//li[@data-testscript='Organizations']")).Click();
                 Thread.Sleep(2000);
-                driver.FindElement(By.XPath("//button[@name='new'][contains(text(),'Add')]")).Click();
-                driver.FindElement(By.Name("name")).SendKeys(organizationName);
-                driver.FindElement(By.XPath("//button[@ng-click='check()']")).Click();
+                driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddOrganization']")).Click();
+                driver.FindElement(By.XPath("//input[@data-testscript='Name']")).SendKeys(organizationName);
+                driver.FindElement(By.XPath("//button[@data-testscript='ButtonCheckOrganization']")).Click();
                 Thread.Sleep(3000);
-                driver.FindElement(By.XPath("//button[@ng-click='addOrganization(organization)']")).Click();
+                driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddOrganization']")).Click();
                 Thread.Sleep(2000);
             }
 
@@ -50,14 +50,14 @@ namespace FollowIT___Automation
             try
             {
                 Console.WriteLine(" ===== Adding general information ===== ");
-                driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isManuallyValidated']")).Click();
-                driver.FindElement(By.XPath("//input[@type='checkbox'][@ng-model='organization.isPartner']")).Click();
+                driver.FindElement(By.XPath("//input[@data-testscript='ManuallyValidated']")).Click();
+                driver.FindElement(By.XPath("//input[@data-testscript='ThirdParty']")).Click();
                 driver.FindElement(By.XPath("//input[@name='website']")).SendKeys($"https://www.{organizationWebsite}.be");
-                driver.FindElement(By.XPath("//input[@name='tradeName']")).SendKeys($"{organizationWebsite}");
-                driver.FindElement(By.XPath("//input[@name='phone']")).SendKeys("+32 " + organizationPhoneNumber);
+                driver.FindElement(By.XPath("//input[@data-testscript='Website']")).SendKeys($"{organizationWebsite}");
+                driver.FindElement(By.XPath("//input[@data-testscript='Phone']")).SendKeys("+32 " + organizationPhoneNumber);
 
                 Console.WriteLine(" ===== Adding sales information ===== ");
-                driver.FindElement(By.XPath("//input[@name='salesLead']")).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");
+                driver.FindElement(By.XPath("//input[@data-testscript='SalesLead']")).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");
                 save.SaveOnly(driver);
 
             }
@@ -79,14 +79,13 @@ namespace FollowIT___Automation
                 string[] addressTypeArray = new string[4] { "home", "business", "billing", "shipping" };
                 int index = random.Next(addressTypeArray.Length);
                 Console.WriteLine(" ===== Adding address =====");
-                driver.FindElement(By.XPath("//button[@ng-click='showLeftFooterButtonsClicked()']")).Click();
-                driver.FindElement(By.XPath("//button[@name='addAddress']")).Click();
+                driver.FindElement(By.XPath("//button[@data-testscript='ButtonShowActions']")).Click();
+                driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddAddress']")).Click();
                 driver.FindElement(By.XPath("//input[@name='addressType']")).SendKeys(addressTypeArray[index]);
-                driver.FindElement(By.XPath("//input[@name='street']")).SendKeys(organizationStreet);
-                driver.FindElement(By.XPath("//input[@name='city']")).SendKeys(organizationCity);
-                driver.FindElement(By.XPath("//input[@name='zipCode']")).SendKeys(organizationZipCode);
-                driver.FindElement(By.XPath("//textarea[@ng-model='address.extraInfo']")).SendKeys("Extra info here..");
-                driver.FindElement(By.XPath("//button[@name='saveAdress']")).Click();
+                driver.FindElement(By.XPath("//input[@data-testscript='Street']")).SendKeys(organizationStreet);
+                driver.FindElement(By.XPath("//input[@data-testscript='City']")).SendKeys(organizationCity);
+                driver.FindElement(By.XPath("//input[@data-testscript='ZipCode']")).SendKeys(organizationZipCode);
+                driver.FindElement(By.XPath("//button[@data-testscript='ButtonSaveActions']")).Click();
                 Thread.Sleep(2000);
 
             }
@@ -106,10 +105,11 @@ namespace FollowIT___Automation
             try
             {
                 Console.WriteLine(" ===== Adding contact person =====");
-                driver.FindElement(By.XPath("//button[@name='addContactperson']")).Click();
-                driver.FindElement(By.XPath("//input[@ng-model='cp.firstName']")).SendKeys(contactPersonFirstName);
-                driver.FindElement(By.XPath("//input[@ng-model='cp.lastName']")).SendKeys(contactPersonLastNaME);
-                driver.FindElement(By.XPath("/html/body/div[1]/div/div/form/div/div[2]/div[4]/div/div/div/div[1]/span")).Click();
+                driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddContactPerson']")).Click();
+                driver.FindElement(By.XPath("//input[@data-testscript='ContactPersonFirstName']")).SendKeys(contactPersonFirstName);
+                driver.FindElement(By.XPath("//input[@data-testscript='ContactPersonLastName']")).SendKeys(contactPersonLastNaME);
+                driver.FindElement(By.XPath("//div[@data-testscript='ContactPersonGender']")).Click();
+                Thread.Sleep(10000);
 
                 //select random male or female in gender dropdown
                 Random random = new Random();
@@ -127,7 +127,7 @@ namespace FollowIT___Automation
                     driver.FindElement(By.XPath($"{female}")).Click();
                 }
 
-                driver.FindElement(By.XPath("//button[@name='saveAdress']")).Click();
+                driver.FindElement(By.XPath("//button[@data-testscript='ButtonSaveActions']")).Click();
                 Thread.Sleep(1000);
                 
 

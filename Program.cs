@@ -56,7 +56,7 @@ namespace FollowIT___Automation
                     candidate.AddCandidateAddress(driver);                   
                     candidate.AddAction(driver);
                     candidate.AddTags(driver);
-                   // Candidate.AddProposal(driver);
+                    candidate.AddProposal(driver);
                     candidate.AddBillingInformation(driver);
                     save.SaveAndClose(driver);
                     break;
@@ -97,7 +97,7 @@ namespace FollowIT___Automation
                     candidate.AddCandidateAddress(driver);                
                     candidate.AddAction(driver);
                     candidate.AddTags(driver);
-                    //Candidate.AddProposal(driver);
+                    candidate.AddProposal(driver);
                     candidate.AddBillingInformation(driver);
                     save.SaveAndClose(driver);
 
