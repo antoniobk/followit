@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FollowIT___Automation.Finance._timesheets
+namespace FollowIT___Automation
 {
    public class TimesheetsRandomGenerator
     {

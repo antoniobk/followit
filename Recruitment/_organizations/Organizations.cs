@@ -127,7 +127,7 @@ namespace FollowIT___Automation
                     driver.FindElement(By.XPath($"{female}")).Click();
                 }
 
-                driver.FindElement(By.XPath("//button[@data-testscript='ButtonSaveActions']")).Click();
+                driver.FindElement(By.Name("saveAdress")).Click();
                 Thread.Sleep(1000);
                 
 

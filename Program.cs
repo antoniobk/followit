@@ -17,6 +17,7 @@ namespace FollowIT___Automation
             Organizations organization = new Organizations();
             Demands demand = new Demands();
             Contractdrafts contractdaft = new Contractdrafts();
+            Timesheets timesheet = new Timesheets();
             Login login = new Login();
             Save save = new Save();
             Helpers helper = new Helpers();
@@ -34,7 +35,8 @@ namespace FollowIT___Automation
                 Console.WriteLine("[2] - Create organization");
                 Console.WriteLine("[3] - Create demand");
                 Console.WriteLine("[4] - Create contract draft");
-                Console.WriteLine("[5] - Test all\n");
+                Console.WriteLine("[5] - Create new timesheet");
+                Console.WriteLine("[6] - Test all\n");
                 Console.Write("Type your choice: ");
                 answer = int.Parse(Console.ReadLine());
 
@@ -95,10 +97,18 @@ namespace FollowIT___Automation
                     helper.OpenFinanceModule(driver);
                     contractdaft.AddNewContractDraft(driver);
                     break;
-                    
-
 
                 case 5:
+                    baseclass.setupApplication(driver);
+                    login.UAT(driver);
+                    helper.OpenFinanceModule(driver);
+                    timesheet.AddTimesheet(driver);
+                    break;
+
+
+
+
+                case 6:
 
                     baseclass.setupApplication(driver);
                     login.UAT(driver);
@@ -125,6 +135,10 @@ namespace FollowIT___Automation
                     demand.AddDemand(driver);
                     demand.AddDemandDetails(driver);
                     save.SaveAndClose(driver);
+
+                    Console.WriteLine("Adding contract draft");                  
+                    contractdaft.AddNewContractDraft(driver);
+
                     break;
                 
                     
