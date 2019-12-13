@@ -11,7 +11,7 @@ using NUnit.Framework;
 
 namespace FollowIT___Automation
 {
-    class Helpers
+    public class Helpers
     {
         public void OpenRecruitmentModule(IWebDriver driver)
         {
@@ -22,6 +22,19 @@ namespace FollowIT___Automation
         public void OpenFinanceModule(IWebDriver driver)
         {
             driver.FindElement(By.XPath("//li[@data-testscript='Finance']")).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void OpenListsModule(IWebDriver driver)
+        {
+            driver.FindElement(By.XPath("//li[@data-testscript='Lists']")).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void OpenAssetsModule(IWebDriver driver)
+        {
+            driver.FindElement(By.XPath("//li[@data-testscript='Assets']")).Click();
+            Thread.Sleep(1000);
         }
     }
 }
