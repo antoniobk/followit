@@ -38,7 +38,8 @@ namespace FollowIT___Automation
                 Console.WriteLine("[4] - Create contract draft");
                 Console.WriteLine("[5] - Create timesheet");
                 Console.WriteLine("[6] - Create list");
-                Console.WriteLine("[7] - Test all\n");
+                Console.WriteLine("[7] - Add laptop");
+                Console.WriteLine("[8] - Test all\n");
                 Console.Write("Type your choice: ");
                 answer = int.Parse(Console.ReadLine());
 
@@ -114,7 +115,7 @@ namespace FollowIT___Automation
                     list.CreateList(driver);
                     break;
 
-
+                    
 
 
                 case 7:

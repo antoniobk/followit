@@ -4,8 +4,20 @@ using System.Text;
 
 namespace FollowIT___Automation
 {
-    public class OrganizationsRandomGenerator
+   public class OrganizationLocators
     {
+
+        //overview
+
+        public string BTN_ORGANIZATIONS = "//li[@data-testscript='Organizations']";
+        public string BUTTON_ADD_ORGANIZATION = "//button[@data-testscript='ButtonAddOrganization']";
+        public string INPUT_ORGANIZATION_NAME = "//input[@data-testscript='Name']";
+        public string BUTTON_CHECK_ORGANIZATION = "//button[@data-testscript='ButtonCheckOrganization']";
+
+        //organization details
+       
+
+
         public string organizationName = new Bogus.DataSets.Company("nl_BE").CompanyName();
         public string organizationWebsite = new Bogus.DataSets.Lorem().Word();
         public string organizationPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("# ### ## ##");
@@ -17,7 +29,6 @@ namespace FollowIT___Automation
 
         public string contactPersonFirstName = new Bogus.DataSets.Name("nl_BE").FirstName();
         public string contactPersonLastNaME = new Bogus.DataSets.Name("nl_BE").LastName();
-
 
     }
 }

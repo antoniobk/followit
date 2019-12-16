@@ -13,7 +13,7 @@ namespace FollowIT___Automation
 {
     
 
-    public class Organizations : OrganizationsRandomGenerator
+    public class Organizations : OrganizationLocators
     {
 
         Save save = new Save();
@@ -25,13 +25,13 @@ namespace FollowIT___Automation
                 Console.WriteLine(" ===== Adding organization =====");
                
                 Thread.Sleep(1000);
-                driver.FindElement(By.XPath("//li[@data-testscript='Organizations']")).Click();
+                driver.FindElement(By.XPath(BTN_ORGANIZATIONS)).Click();
                 Thread.Sleep(2000);
-                driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddOrganization']")).Click();
-                driver.FindElement(By.XPath("//input[@data-testscript='Name']")).SendKeys(organizationName);
-                driver.FindElement(By.XPath("//button[@data-testscript='ButtonCheckOrganization']")).Click();
+                driver.FindElement(By.XPath(BUTTON_ADD_ORGANIZATION)).Click();
+                driver.FindElement(By.XPath(INPUT_ORGANIZATION_NAME)).SendKeys(organizationName);
+                driver.FindElement(By.XPath(BUTTON_CHECK_ORGANIZATION)).Click();
                 Thread.Sleep(3000);
-                driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddOrganization']")).Click();
+                driver.FindElement(By.XPath(BUTTON_ADD_ORGANIZATION)).Click();
                 Thread.Sleep(2000);
             }
 
