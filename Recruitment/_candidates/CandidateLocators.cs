@@ -58,7 +58,7 @@ namespace FollowIT___Automation
 
 
 
-        // Testdata
+        // Data generators
         public string firstName = new Bogus.DataSets.Name("nl_BE").FirstName();
         public string lastName = new Bogus.DataSets.Name("nl_BE").LastName();
         public string placeOfBirth = new Bogus.DataSets.Address("nl").City();

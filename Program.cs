@@ -14,11 +14,12 @@ namespace FollowIT___Automation
         {
 
             Candidate candidate = new Candidate();
+            
             Organizations organization = new Organizations();
             Demands demand = new Demands();
             Contractdrafts contractdaft = new Contractdrafts();
             Timesheets timesheet = new Timesheets();
-            Lists list = new Lists();
+            
             Login login = new Login();
             Save save = new Save();
             Helpers helper = new Helpers();
@@ -37,8 +38,6 @@ namespace FollowIT___Automation
                 Console.WriteLine("[3] - Create demand");
                 Console.WriteLine("[4] - Create contract draft");
                 Console.WriteLine("[5] - Create timesheet");
-                Console.WriteLine("[6] - Create list");
-                Console.WriteLine("[7] - Add laptop");
                 Console.WriteLine("[8] - Test all\n");
                 Console.Write("Type your choice: ");
                 answer = int.Parse(Console.ReadLine());
@@ -78,8 +77,7 @@ namespace FollowIT___Automation
                     organization.AddOrganizationDetails(driver);
                     organization.AddOrganizationAddress(driver);
                     organization.AddOrganizationContactPerson(driver);
-                    save.SaveAndClose(driver);
-                    
+                    save.SaveAndClose(driver);                   
                     break;
 
 
@@ -107,16 +105,7 @@ namespace FollowIT___Automation
                     helper.OpenFinanceModule(driver);
                     timesheet.AddTimesheet(driver);
                     break;
-
-                case 6:
-                    baseclass.setupApplication(driver);
-                    login.UAT(driver);
-                    helper.OpenListsModule(driver);
-                    list.CreateList(driver);
-                    break;
-
-                    
-
+                
 
                 case 7:
 
@@ -153,11 +142,6 @@ namespace FollowIT___Automation
 
                     Console.WriteLine("Creating timesheet");                   
                     timesheet.AddTimesheet(driver);
-
-                    Console.WriteLine("Creating list");
-                    helper.OpenListsModule(driver);
-                    list.CreateList(driver);
-
                     break;
                 
                     

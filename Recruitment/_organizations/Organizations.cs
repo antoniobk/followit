@@ -50,14 +50,13 @@ namespace FollowIT___Automation
             try
             {
                 Console.WriteLine(" ===== Adding general information ===== ");
-                driver.FindElement(By.XPath("//input[@data-testscript='ManuallyValidated']")).Click();
-                driver.FindElement(By.XPath("//input[@data-testscript='ThirdParty']")).Click();
-                driver.FindElement(By.XPath("//input[@name='website']")).SendKeys($"https://www.{organizationWebsite}.be");
-                driver.FindElement(By.XPath("//input[@data-testscript='Website']")).SendKeys($"{organizationWebsite}");
-                driver.FindElement(By.XPath("//input[@data-testscript='Phone']")).SendKeys("+32 " + organizationPhoneNumber);
+                driver.FindElement(By.XPath(RADIO_BTN_MANUALLY)).Click();
+                driver.FindElement(By.XPath(RADIO_BTN_THIRDPARTY)).Click();
+                driver.FindElement(By.XPath(INPUT_WEBSITE)).SendKeys($"https://www.{organizationWebsite}.be");
+                driver.FindElement(By.XPath(INPUT_PHONE)).SendKeys("+32 " + organizationPhoneNumber);
 
                 Console.WriteLine(" ===== Adding sales information ===== ");
-                driver.FindElement(By.XPath("//input[@data-testscript='SalesLead']")).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");
+                driver.FindElement(By.XPath(INPUT_SALESLEAD)).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");
                 save.SaveOnly(driver);
 
             }
@@ -79,13 +78,13 @@ namespace FollowIT___Automation
                 string[] addressTypeArray = new string[4] { "home", "business", "billing", "shipping" };
                 int index = random.Next(addressTypeArray.Length);
                 Console.WriteLine(" ===== Adding address =====");
-                driver.FindElement(By.XPath("//button[@data-testscript='ButtonShowActions']")).Click();
-                driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddAddress']")).Click();
-                driver.FindElement(By.XPath("//input[@name='addressType']")).SendKeys(addressTypeArray[index]);
-                driver.FindElement(By.XPath("//input[@data-testscript='Street']")).SendKeys(organizationStreet);
-                driver.FindElement(By.XPath("//input[@data-testscript='City']")).SendKeys(organizationCity);
-                driver.FindElement(By.XPath("//input[@data-testscript='ZipCode']")).SendKeys(organizationZipCode);
-                driver.FindElement(By.XPath("//button[@data-testscript='ButtonSaveActions']")).Click();
+                driver.FindElement(By.XPath(BTN_SHOWACTIONS)).Click();
+                driver.FindElement(By.XPath(BTN_ADDADDRESS)).Click();
+                driver.FindElement(By.XPath(INPUT_ADDRESSTYPE)).SendKeys(addressTypeArray[index]);
+                driver.FindElement(By.XPath(INPUT_STREET)).SendKeys(organizationStreet);
+                driver.FindElement(By.XPath(INPUT_CITY)).SendKeys(organizationCity);
+                driver.FindElement(By.XPath(INPUT_ZIPCODE)).SendKeys(organizationZipCode);
+                driver.FindElement(By.XPath(BTN_SAVEACTIONS)).Click();
                 Thread.Sleep(2000);
 
             }
@@ -105,14 +104,14 @@ namespace FollowIT___Automation
             try
             {
                 Console.WriteLine(" ===== Adding contact person =====");
-                driver.FindElement(By.XPath("//button[@data-testscript='ButtonAddContactPerson']")).Click();
-                driver.FindElement(By.XPath("//input[@data-testscript='ContactPersonFirstName']")).SendKeys(contactPersonFirstName);
-                driver.FindElement(By.XPath("//input[@data-testscript='ContactPersonLastName']")).SendKeys(contactPersonLastNaME);
-                driver.FindElement(By.XPath("//div[@data-testscript='ContactPersonGender']")).Click();
+                driver.FindElement(By.XPath(BTN_ADD_CONTACTPERSON)).Click();
+                driver.FindElement(By.XPath(INPUT_CONTACTPERSON_FIRSTNAME)).SendKeys(contactPersonFirstName);
+                driver.FindElement(By.XPath(INPUT_CONTACTPERSON_LASTNAME)).SendKeys(contactPersonLastNaME);
+                driver.FindElement(By.XPath(DROPDOWN_CONTACTPERSON_GENDER)).Click();
                 Thread.Sleep(100);
 
                 //select random male or female in gender dropdown
-                Random random = new Random();
+                Random random = new Random(); 
                 int maleFemale = random.Next(0, 10);
                 string male = "//span[@ng-bind='sex.value'][contains(text(), 'Male')]";
                 string female = "//span[@ng-bind='sex.value'][contains(text(), 'Female')]";
@@ -144,6 +143,9 @@ namespace FollowIT___Automation
            
            
         }
+
+      
+
 
 
     }
