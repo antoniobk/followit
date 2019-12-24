@@ -16,27 +16,17 @@ namespace FollowIT___Automation
         public void AddDemand(IWebDriver driver)
         {
 
-            try
-            {
+           
                 Console.WriteLine("Adding new demand");
                 driver.FindElement(By.XPath(BTN_DEMANDS)).Click();
-                driver.FindElement(By.XPath(BTN_ADD_DEMAND)).Click();
-
-            }
-
-            catch(Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to add new demand");
-            }        
+                driver.FindElement(By.XPath(BTN_ADD_DEMAND)).Click();             
           
         }
         
         public void AddDemandDetails(IWebDriver driver)
         {
 
-            try
-            {
+           
                 Random random = new Random();
 
                 Console.WriteLine("Adding general information");
@@ -80,6 +70,8 @@ namespace FollowIT___Automation
 
                  driver.FindElement(By.XPath(INPUT_START_DATE)).SendKeys(startingDate);
                  driver.FindElement(By.XPath(INPUT_END_DATE)).SendKeys(closingDate);
+
+
                  int maxDayPrice = random.Next(100, 300);
                  driver.FindElement(By.XPath(INPUT_MAX_DAYPRICE)).SendKeys($"€ {maxDayPrice}"); 
 
@@ -87,13 +79,6 @@ namespace FollowIT___Automation
                  driver.FindElement(By.XPath(DURATION)).SendKeys($"{duration} months");
             }
 
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to add general information");
-            }
-
-
-        }
+      
     }
 }

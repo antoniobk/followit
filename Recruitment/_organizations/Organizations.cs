@@ -19,9 +19,7 @@ namespace FollowIT___Automation
         Save save = new Save();
         public void AddOrganization(IWebDriver driver)
         {
-
-           try
-            {
+       
                 Console.WriteLine(" ===== Adding organization =====");
                
                 Thread.Sleep(1000);
@@ -35,20 +33,12 @@ namespace FollowIT___Automation
                 Thread.Sleep(2000);
             }
 
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to add new organization");             
-            }         
-
-        }
+      
 
 
         public void AddOrganizationDetails(IWebDriver driver)
         {
-
-            try
-            {
+           
                 Console.WriteLine(" ===== Adding general information ===== ");
                 driver.FindElement(By.XPath(RADIO_BTN_MANUALLY)).Click();
                 driver.FindElement(By.XPath(RADIO_BTN_THIRDPARTY)).Click();
@@ -61,19 +51,14 @@ namespace FollowIT___Automation
 
             }
 
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to add organization details");
-            }
+          
            
-        }
+        
 
      
         public void AddOrganizationAddress(IWebDriver driver)
         {
-            try
-            {
+            
                 Random random = new Random();
                 string[] addressTypeArray = new string[4] { "home", "business", "billing", "shipping" };
                 int index = random.Next(addressTypeArray.Length);
@@ -85,15 +70,7 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath(INPUT_CITY)).SendKeys(organizationCity);
                 driver.FindElement(By.XPath(INPUT_ZIPCODE)).SendKeys(organizationZipCode);
                 driver.FindElement(By.XPath(BTN_SAVEACTIONS)).Click();
-                Thread.Sleep(2000);
-
-            }
-                
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to add organization address");
-            }
+                Thread.Sleep(2000);              
             
         }
 
@@ -101,8 +78,7 @@ namespace FollowIT___Automation
         public void AddOrganizationContactPerson(IWebDriver driver)
         {
 
-            try
-            {
+            
                 Console.WriteLine(" ===== Adding contact person =====");
                 driver.FindElement(By.XPath(BTN_ADD_CONTACTPERSON)).Click();
                 driver.FindElement(By.XPath(INPUT_CONTACTPERSON_FIRSTNAME)).SendKeys(contactPersonFirstName);
@@ -130,16 +106,8 @@ namespace FollowIT___Automation
                 Thread.Sleep(1000);
                 
 
-            }
-
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to add organization contact person");
-               
-            }
-
-            save.SaveOnly(driver);
+          
+               save.SaveOnly(driver);
            
            
         }

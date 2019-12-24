@@ -27,7 +27,7 @@ namespace FollowIT___Automation
         //address
         public string INPUT_STREET = "street";
         public string INPUT_CITY = "city";
-        public string INPUT_ZIPCODE = "zipcode";
+        public string INPUT_ZIPCODE = "zipCode";
         public string DROPDOWN_COUNTRY = "//div[@data-testscript='Country']";
         public string DROPDOWN_ORIGIN = "//div[@data-testscript='Origin']";
         public string DROPDOWN_WORKTITLE = "//input[@data-testscript='WorkTitle']";
@@ -51,6 +51,12 @@ namespace FollowIT___Automation
 
         //billing information
         public string BILLING_INFORMATION_TAB = "//li[@data-testscript='BillingInformationTab']";
+        public string RADIOBTN_FREELANCER = "//input[@name='freelancer']";
+        public string RESET_VALUES_POPUP_YES = "//button[@data-bb-handler='confirm']";
+        public string INPUT_NAME = "//button[@data-bb-handler='confirm']";
+        public string INPUT_JURIDICALFORM = "//input[@name='juridicalForm']";
+
+
 
 
 

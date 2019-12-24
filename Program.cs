@@ -33,11 +33,11 @@ namespace FollowIT___Automation
             {
                 Console.WriteLine("Hey there, what do you want to test?\n");
 
-                Console.WriteLine("[1] - Create candidate");
-                Console.WriteLine("[2] - Create organization");
-                Console.WriteLine("[3] - Create demand");
-                Console.WriteLine("[4] - Create contract draft");
-                Console.WriteLine("[5] - Create timesheet");
+                Console.WriteLine("[1] - Add a new candidate");
+                Console.WriteLine("[2] - Add a new organization");
+                Console.WriteLine("[3] - Add a new demand");
+                Console.WriteLine("[4] - Add a new contract draft");
+                Console.WriteLine("[5] - Add a new timesheet");
                 Console.WriteLine("[8] - Test all\n");
                 Console.Write("Type your choice: ");
                 answer = int.Parse(Console.ReadLine());
@@ -97,6 +97,7 @@ namespace FollowIT___Automation
                     login.UAT(driver);
                     helper.OpenFinanceModule(driver);
                     contractdaft.AddNewContractDraft(driver);
+                    save.SaveAndClose(driver);
                     break;
 
                 case 5:

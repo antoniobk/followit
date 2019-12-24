@@ -20,7 +20,7 @@ namespace FollowIT___Automation
         Save save = new Save();
         public void AddNewCandidate(IWebDriver driver)
         { 
-            try {
+            
                 Console.WriteLine(" ===== Adding new candidate ===== ");
 
                 driver.FindElement(By.XPath(BTN_CANDIDATES)).Click();
@@ -34,20 +34,12 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath(BUTTON_ADD_CANDIDATE)).Click();
                 Thread.Sleep(3000);
             }
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Failed to add new candidate");
-            
-            }
-               
-        }
-
+      
 
         public void AddGeneralInfo(IWebDriver driver)
         {
-            try
-            {
+          
+            
                 Random random = new Random();
                 Console.WriteLine(" ===== Adding general information ===== ");
                 driver.FindElement(By.XPath(INPUT_PLACEOFBIRTH)).SendKeys(placeOfBirth);
@@ -69,36 +61,22 @@ namespace FollowIT___Automation
 
             }
 
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ===== Failed to add general information ===== ");
-            }
-
-        }
+     
 
         public void AddContactDetails(IWebDriver driver)
         {
-            try
-            {                        
+                                  
                 driver.FindElement(By.XPath(INPUT_CELLPHONE)).SendKeys("+32 " + cellPhoneNumber);
                 Thread.Sleep(3000);
                 //driver.FindElement(By.XPath("")).SendKeys(email);
             }
 
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ===== Failed to add contact details ===== ");
-            }
-
-        }
+        
 
 
         public void AddCandidateAddress(IWebDriver driver) {
 
-            try
-            {
+            
                 Random random = new Random();
                 int index;
                 Console.WriteLine(" ===== Adding address ===== ");
@@ -127,20 +105,14 @@ namespace FollowIT___Automation
                 save.SaveOnly(driver);
             }
                         
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ===== Failed to add candidate address ===== ");
-            }
-
-
-        }
+            
+         
 
 
         public void AddAction(IWebDriver driver)
         {
 
-            try {
+      
 
                 Random random = new Random();
                 Console.WriteLine(" ===== Adding action ===== ");
@@ -156,38 +128,24 @@ namespace FollowIT___Automation
                 Thread.Sleep(2000);
             }
 
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ==== Failed to add action ==== ");
-            }
-
-        }
+     
 
         
         public void AddTags(IWebDriver driver)
-        {
-            try {
 
+         {       
                 Console.WriteLine(" ===== Adding tags ===== ");
                 driver.FindElement(By.XPath(TAGS_TAB)).Click();
                 Thread.Sleep(1000);
                 driver.FindElement(By.XPath(CHECKBOX)).Click();
                 Thread.Sleep(6000);
-            }
+          }
 
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ===== Failed to add candidate tags ===== ");
-            }           
-
-        }
+    
 
         public void AddProposal(IWebDriver driver)
         {
-            try {
-
+            
                 Random random = new Random();
                 driver.FindElement(By.XPath(PROPOSALS_TAB)).Click();
                 driver.FindElement(By.XPath(BUTTON_ADD_PROPOSAL)).Click();
@@ -210,21 +168,11 @@ namespace FollowIT___Automation
 
             }
 
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ===== Failed to add proposal ===== ");
-            }
-
-           
-        }
 
 
         public void AddBillingInformation(IWebDriver driver)
         {
-
-            try
-            {
+        
                 Random random = new Random();
                 string[] juridicalFormsArray = new string[3] { "NV", "BVBA", "Eenmanszaak" };
                 int index = random.Next(juridicalFormsArray.Length);
@@ -232,27 +180,19 @@ namespace FollowIT___Automation
                 Console.WriteLine(" ==== Adding billing information ===== ");
                 driver.FindElement(By.XPath(BILLING_INFORMATION_TAB)).Click();
                 Thread.Sleep(1000);
-                driver.FindElement(By.XPath("//input[@name='freelancer']")).Click();
+                driver.FindElement(By.XPath(RADIOBTN_FREELANCER)).Click();
                 Thread.Sleep(2000);
-                driver.FindElement(By.XPath("//button[@data-bb-handler='confirm']")).Click();
+                driver.FindElement(By.XPath(RESET_VALUES_POPUP_YES)).Click();
                 Thread.Sleep(1000);
-                driver.FindElement(By.XPath("//input[@name='name']")).SendKeys($"{firstName}Company name here");
-                driver.FindElement(By.XPath("//input[@name='juridicalForm']")).SendKeys(juridicalFormsArray[index]);
+                driver.FindElement(By.XPath(INPUT_NAME)).SendKeys($"{firstName}Company name here");
+                driver.FindElement(By.XPath(INPUT_JURIDICALFORM)).SendKeys(juridicalFormsArray[index]);
                 Thread.Sleep(1000);
                 save.SaveOnly(driver);
                 
 
             }
 
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ===== Failed to add billing information ===== ");
-            }
-          
-
-        }
-      
+       
 
     }
 }

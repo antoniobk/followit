@@ -10,35 +10,32 @@ using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 namespace FollowIT___Automation
 {
-   public class Timesheets : TimesheetsRandomGenerator
+   public  class Timesheets : TimesheetsLocators
     {
+
+        
         public void AddTimesheet(IWebDriver driver) 
         {
             Random random = new Random();
-            try
-            {
-                driver.FindElement(By.XPath("//li[@data-testscript='Timesheets']")).Click();
-                driver.FindElement(By.XPath("//button[@ng-click='createNewTimesheet()']")).Click();
+         
+                driver.FindElement(By.XPath(BTN_TIMESHEETS)).Click();
+                driver.FindElement(By.XPath(BTN_CREATE_NEW_TIMESHEET)).Click();
+
                 int contractId = random.Next(0,10000);
-                driver.FindElement(By.Name("contractId")).SendKeys(contractId.ToString());
-                driver.FindElement(By.XPath("//button[@name='createTimesheet']")).Click();
+                driver.FindElement(By.Name(INPUT_CONTRACTID)).SendKeys(contractId.ToString());
+                driver.FindElement(By.XPath(BTN_CREATETIMESHEET)).Click();
+
                 //driver.FindElement(By.XPath("//div[@ng-model='month']")).Click();
                 //Thread.Sleep(3000);
 
                 //int month = random.Next(3,14);
                 //driver.FindElement(By.XPath($"/html/body/div[1]/div/div/form/div/div[2]/div[2]/div/div/div/ul/li/div[{month}]/a")).Click();
-                
-
-                
-
-                
+                           
                 
             }
 
-            catch
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-            }
-        }
+
+
+        
     }
 }
