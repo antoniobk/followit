@@ -47,7 +47,7 @@ namespace FollowIT___Automation
                 Console.WriteLine("=====Browser Session End=====");
             }
 
-            catch (Exception)
+            catch
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Failed to close browser");

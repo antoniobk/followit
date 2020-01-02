@@ -42,7 +42,7 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath("//button[@data-testscript='SaveCloseButton']")).Click();
             }
 
-            catch (Exception)
+            catch
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" ===== Failed to save ==== ");
