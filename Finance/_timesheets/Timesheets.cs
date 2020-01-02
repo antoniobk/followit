@@ -16,12 +16,13 @@ namespace FollowIT___Automation
         
         public void AddTimesheet(IWebDriver driver) 
         {
-            Random random = new Random();
-         
+                 Random random = new Random();
+            try
+            {
                 driver.FindElement(By.XPath(BTN_TIMESHEETS)).Click();
                 driver.FindElement(By.XPath(BTN_CREATE_NEW_TIMESHEET)).Click();
 
-                int contractId = random.Next(0,10000);
+                int contractId = random.Next(0, 10000);
                 driver.FindElement(By.Name(INPUT_CONTRACTID)).SendKeys(contractId.ToString());
                 driver.FindElement(By.XPath(BTN_CREATETIMESHEET)).Click();
 
@@ -30,8 +31,16 @@ namespace FollowIT___Automation
 
                 //int month = random.Next(3,14);
                 //driver.FindElement(By.XPath($"/html/body/div[1]/div/div/form/div/div[2]/div[2]/div/div/div/ul/li/div[{month}]/a")).Click();
-                           
-                
+            }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add timesheet");
+            }
+
+
+
+
             }
 
 

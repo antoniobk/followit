@@ -16,17 +16,24 @@ namespace FollowIT___Automation
         public void AddDemand(IWebDriver driver)
         {
 
-           
+            try
+            {
                 Console.WriteLine("Adding new demand");
                 driver.FindElement(By.XPath(BTN_DEMANDS)).Click();
-                driver.FindElement(By.XPath(BTN_ADD_DEMAND)).Click();             
-          
+                driver.FindElement(By.XPath(BTN_ADD_DEMAND)).Click();
+            }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add demand");
+            }
         }
         
         public void AddDemandDetails(IWebDriver driver)
         {
 
-           
+            try
+            {
                 Random random = new Random();
 
                 Console.WriteLine("Adding general information");
@@ -61,23 +68,30 @@ namespace FollowIT___Automation
                         break;
                 }
 
-                 string[] client = new string[3] { "a", "w", "y" };
-                 int clientCharacter = random.Next(client.Length);
+                string[] client = new string[3] { "a", "w", "y" };
+                int clientCharacter = random.Next(client.Length);
 
-                 driver.FindElement(By.XPath(INPUT_CLIENT_PROSPECT)).SendKeys(client[clientCharacter]);
-                 Thread.Sleep(1000);
-                 driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div[2]/div/div/div/div/div/div[1]/div/form/fieldset[2]/div/div/div[6]/div/div/ul/li[1]/a")).SendKeys(Keys.Enter);
+                driver.FindElement(By.XPath(INPUT_CLIENT_PROSPECT)).SendKeys(client[clientCharacter]);
+                Thread.Sleep(1000);
+                driver.FindElement(By.XPath("/html/body/div[4]/div[3]/div[1]/div/div[2]/div/div/div/div/div/div[1]/div/form/fieldset[2]/div/div/div[6]/div/div/ul/li[1]/a")).SendKeys(Keys.Enter);
 
-                 driver.FindElement(By.XPath(INPUT_START_DATE)).SendKeys(startingDate);
-                 driver.FindElement(By.XPath(INPUT_END_DATE)).SendKeys(closingDate);
+                driver.FindElement(By.XPath(INPUT_START_DATE)).SendKeys(startingDate);
+                driver.FindElement(By.XPath(INPUT_END_DATE)).SendKeys(closingDate);
 
 
-                 int maxDayPrice = random.Next(100, 300);
-                 driver.FindElement(By.XPath(INPUT_MAX_DAYPRICE)).SendKeys($"€ {maxDayPrice}"); 
+                int maxDayPrice = random.Next(100, 300);
+                driver.FindElement(By.XPath(INPUT_MAX_DAYPRICE)).SendKeys($"€ {maxDayPrice}");
 
-                 var duration = random.Next(2, 8);
-                 driver.FindElement(By.XPath(DURATION)).SendKeys($"{duration} months");
+                var duration = random.Next(2, 8);
+                driver.FindElement(By.XPath(DURATION)).SendKeys($"{duration} months");
             }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add demand details");
+            }
+
+          }
 
       
     }

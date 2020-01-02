@@ -53,7 +53,7 @@ namespace FollowIT___Automation
             {
                 case 1:
                    
-                    baseclass.setupApplication(driver);                  
+                    baseclass.SetupApplication(driver);                  
                     login.UAT(driver);
                     helper.OpenRecruitmentModule(driver);
                     candidate.AddNewCandidate(driver);
@@ -70,7 +70,7 @@ namespace FollowIT___Automation
 
                 case 2:
                     
-                    baseclass.setupApplication(driver);
+                    baseclass.SetupApplication(driver);
                     login.UAT(driver);
                     helper.OpenRecruitmentModule(driver);
                     organization.AddOrganization(driver);
@@ -83,7 +83,7 @@ namespace FollowIT___Automation
 
                 case 3:
                     
-                    baseclass.setupApplication(driver);
+                    baseclass.SetupApplication(driver);
                     login.UAT(driver);
                     helper.OpenRecruitmentModule(driver);
                     demand.AddDemand(driver);
@@ -93,15 +93,15 @@ namespace FollowIT___Automation
 
 
                 case 4:
-                    baseclass.setupApplication(driver);
+                    baseclass.SetupApplication(driver);
                     login.UAT(driver);
                     helper.OpenFinanceModule(driver);
-                    contractdaft.AddNewContractDraft(driver);
+                    contractdaft.AddNewContractDraftFromCandidate(driver);
                     save.SaveAndClose(driver);
                     break;
 
                 case 5:
-                    baseclass.setupApplication(driver);
+                    baseclass.SetupApplication(driver);
                     login.UAT(driver);
                     helper.OpenFinanceModule(driver);
                     timesheet.AddTimesheet(driver);
@@ -110,7 +110,7 @@ namespace FollowIT___Automation
 
                 case 7:
 
-                    baseclass.setupApplication(driver);
+                    baseclass.SetupApplication(driver);
                     login.UAT(driver);
                     helper.OpenRecruitmentModule(driver);
                     candidate.AddNewCandidate(driver);
@@ -139,7 +139,7 @@ namespace FollowIT___Automation
 
                     helper.OpenFinanceModule(driver);
                     Console.WriteLine("Adding contract draft");                  
-                    contractdaft.AddNewContractDraft(driver);
+                    contractdaft.AddNewContractDraftFromCandidate(driver);
 
                     Console.WriteLine("Creating timesheet");                   
                     timesheet.AddTimesheet(driver);

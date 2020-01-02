@@ -21,7 +21,8 @@ namespace FollowIT___Automation
         {
        
                 Console.WriteLine(" ===== Adding organization =====");
-               
+            try
+            {
                 Thread.Sleep(1000);
                 driver.FindElement(By.XPath(BTN_ORGANIZATIONS)).Click();
                 Thread.Sleep(2000);
@@ -33,13 +34,23 @@ namespace FollowIT___Automation
                 Thread.Sleep(2000);
             }
 
-      
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add organization");
+            }
+
+         }
+
+
 
 
         public void AddOrganizationDetails(IWebDriver driver)
         {
-           
-                Console.WriteLine(" ===== Adding general information ===== ");
+            Console.WriteLine(" ===== Adding general information ===== ");
+            try
+            {
+
                 driver.FindElement(By.XPath(RADIO_BTN_MANUALLY)).Click();
                 driver.FindElement(By.XPath(RADIO_BTN_THIRDPARTY)).Click();
                 driver.FindElement(By.XPath(INPUT_WEBSITE)).SendKeys($"https://www.{organizationWebsite}.be");
@@ -48,8 +59,13 @@ namespace FollowIT___Automation
                 Console.WriteLine(" ===== Adding sales information ===== ");
                 driver.FindElement(By.XPath(INPUT_SALESLEAD)).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");
                 save.SaveOnly(driver);
-
             }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+        }
+            
 
           
            
@@ -58,7 +74,8 @@ namespace FollowIT___Automation
      
         public void AddOrganizationAddress(IWebDriver driver)
         {
-            
+            try
+            {
                 Random random = new Random();
                 string[] addressTypeArray = new string[4] { "home", "business", "billing", "shipping" };
                 int index = random.Next(addressTypeArray.Length);
@@ -70,15 +87,21 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath(INPUT_CITY)).SendKeys(organizationCity);
                 driver.FindElement(By.XPath(INPUT_ZIPCODE)).SendKeys(organizationZipCode);
                 driver.FindElement(By.XPath(BTN_SAVEACTIONS)).Click();
-                Thread.Sleep(2000);              
-            
+                Thread.Sleep(2000);
+            }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add organization add");
+            }
         }
 
 
         public void AddOrganizationContactPerson(IWebDriver driver)
         {
 
-            
+            try
+            {
                 Console.WriteLine(" ===== Adding contact person =====");
                 driver.FindElement(By.XPath(BTN_ADD_CONTACTPERSON)).Click();
                 driver.FindElement(By.XPath(INPUT_CONTACTPERSON_FIRSTNAME)).SendKeys(contactPersonFirstName);
@@ -87,7 +110,7 @@ namespace FollowIT___Automation
                 Thread.Sleep(100);
 
                 //select random male or female in gender dropdown
-                Random random = new Random(); 
+                Random random = new Random();
                 int maleFemale = random.Next(0, 10);
                 string male = "//span[@ng-bind='sex.value'][contains(text(), 'Male')]";
                 string female = "//span[@ng-bind='sex.value'][contains(text(), 'Female')]";
@@ -104,11 +127,13 @@ namespace FollowIT___Automation
 
                 driver.FindElement(By.Name("saveAdress")).Click();
                 Thread.Sleep(1000);
-                
-
-          
-               save.SaveOnly(driver);
-           
+                save.SaveOnly(driver);
+            }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add contact person");
+            }
            
         }
 

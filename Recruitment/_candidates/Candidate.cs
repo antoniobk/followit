@@ -12,15 +12,16 @@ using NUnit.Framework;
 
 namespace FollowIT___Automation
 {
-   
+
 
     public class Candidate : CandidateLocators
     {
 
         Save save = new Save();
         public void AddNewCandidate(IWebDriver driver)
-        { 
-            
+        {
+            try
+            {
                 Console.WriteLine(" ===== Adding new candidate ===== ");
 
                 driver.FindElement(By.XPath(BTN_CANDIDATES)).Click();
@@ -33,13 +34,26 @@ namespace FollowIT___Automation
                 Thread.Sleep(3000);
                 driver.FindElement(By.XPath(BUTTON_ADD_CANDIDATE)).Click();
                 Thread.Sleep(3000);
+
             }
-      
+
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add candidate");
+            }
+
+
+
+
+        }
+
 
         public void AddGeneralInfo(IWebDriver driver)
         {
-          
-            
+
+            try
+            {
                 Random random = new Random();
                 Console.WriteLine(" ===== Adding general information ===== ");
                 driver.FindElement(By.XPath(INPUT_PLACEOFBIRTH)).SendKeys(placeOfBirth);
@@ -56,27 +70,43 @@ namespace FollowIT___Automation
                 string[] type = new string[4] { "Freelance", "Employee Consulant", "College Student", "Unknown" };
                 index = random.Next(type.Length);
                 driver.FindElement(By.XPath($"//span[contains(text(),'{type[index]}')]")).Click();
-               
-                //driver.FindElement(By.XPath("")).SendKeys(email);
 
             }
 
-     
+            //driver.FindElement(By.XPath("")).SendKeys(email);
+
+
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add general information");
+            }
+        }
+
 
         public void AddContactDetails(IWebDriver driver)
         {
-                                  
-                driver.FindElement(By.XPath(INPUT_CELLPHONE)).SendKeys("+32 " + cellPhoneNumber);
+            try
+            {
+                driver.FindElement(By.XPath(INPUT_CELLPHONE)).SendKeys($"+32 {cellPhoneNumber}");
                 Thread.Sleep(3000);
-                //driver.FindElement(By.XPath("")).SendKeys(email);
+            }
+            //driver.FindElement(By.XPath("")).SendKeys(email);
+
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add phone number (contact details)");
             }
 
-        
+        }
 
 
-        public void AddCandidateAddress(IWebDriver driver) {
+        public void AddCandidateAddress(IWebDriver driver)
+        {
 
-            
+            try
+            {
                 Random random = new Random();
                 int index;
                 Console.WriteLine(" ===== Adding address ===== ");
@@ -86,7 +116,7 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath(DROPDOWN_COUNTRY)).Click();
                 driver.FindElement(By.XPath("//span[@class='ng-binding ng-scope'][contains(text(),'Belgium')]")).Click();
 
-                
+
                 Console.WriteLine(" ===== Adding origin =====");
                 driver.FindElement(By.XPath(DROPDOWN_ORIGIN)).Click();
 
@@ -104,16 +134,25 @@ namespace FollowIT___Automation
                 // driver.FindElement(By.XPath("//div[@data-testscript='ContactBeforeDate']")).Click();
                 save.SaveOnly(driver);
             }
-                        
+
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add candidate address");
+            }
+
             
          
+        }
+
+
+
 
 
         public void AddAction(IWebDriver driver)
         {
-
-      
-
+            try
+            {
                 Random random = new Random();
                 Console.WriteLine(" ===== Adding action ===== ");
                 driver.FindElement(By.XPath(ACTIONS_TAB)).Click();
@@ -126,30 +165,49 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath($"//span[contains(text(),'{actionType[index]}')]")).Click();
                 driver.FindElement(By.XPath(BUTTON_SAVE_ACTION)).Click();
                 Thread.Sleep(2000);
+
             }
 
-     
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add action");
+            }
+        }
 
-        
+
+
+
         public void AddTags(IWebDriver driver)
 
-         {       
+        {
+            try
+            {
                 Console.WriteLine(" ===== Adding tags ===== ");
                 driver.FindElement(By.XPath(TAGS_TAB)).Click();
                 Thread.Sleep(1000);
                 driver.FindElement(By.XPath(CHECKBOX)).Click();
                 Thread.Sleep(6000);
-          }
 
-    
+            }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add tag");
+            }
+        }
+
+
 
         public void AddProposal(IWebDriver driver)
         {
-            
+
+            try
+            {
                 Random random = new Random();
                 driver.FindElement(By.XPath(PROPOSALS_TAB)).Click();
                 driver.FindElement(By.XPath(BUTTON_ADD_PROPOSAL)).Click();
-                
+
                 int priceIn = random.Next(1, 100);
                 driver.FindElement(By.XPath(INPUT_PRICE_IN)).Clear();
                 driver.FindElement(By.XPath(INPUT_PRICE_IN)).SendKeys(priceIn.ToString());
@@ -164,15 +222,21 @@ namespace FollowIT___Automation
                 index = random.Next(action.Length);
 
                 driver.FindElement(By.XPath(DROPDOWN_PROPOSAL_ACTION)).Click();
-                driver.FindElement(By.XPath($"//span[contains(text(),'{action[index]}')]")).Click(); 
-
+                driver.FindElement(By.XPath($"//span[contains(text(),'{action[index]}')]")).Click();
             }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add proposal"); 
+                
+            }
+        }
 
 
 
         public void AddBillingInformation(IWebDriver driver)
         {
-        
+            try {
                 Random random = new Random();
                 string[] juridicalFormsArray = new string[3] { "NV", "BVBA", "Eenmanszaak" };
                 int index = random.Next(juridicalFormsArray.Length);
@@ -188,11 +252,20 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath(INPUT_JURIDICALFORM)).SendKeys(juridicalFormsArray[index]);
                 Thread.Sleep(1000);
                 save.SaveOnly(driver);
-                
-
             }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Failed to add billing information");
+            }    
+           
 
-       
+
+        }
+
+
 
     }
+
 }
+

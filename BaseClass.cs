@@ -17,7 +17,7 @@ namespace FollowIT___Automation
     {
         [SetUp]
         //Before Class
-        public void setupApplication(IWebDriver driver)
+        public void SetupApplication(IWebDriver driver)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace FollowIT___Automation
 
         //After Class
 
-        public void closeApplication(IWebDriver driver)
+        public void CloseApplication(IWebDriver driver)
         {
 
             try

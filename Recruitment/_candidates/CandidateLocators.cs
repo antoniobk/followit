@@ -22,7 +22,7 @@ namespace FollowIT___Automation
         public string TYPE_ = "//div[@data-testscript='Type']";
 
         //contact details
-        public string INPUT_CELLPHONE = "//input[@data-testscript='Cellphone']";
+        public string INPUT_CELLPHONE = "//input[@ng-model='phone']";
 
         //address
         public string INPUT_STREET = "street";
@@ -69,7 +69,7 @@ namespace FollowIT___Automation
         public string lastName = new Bogus.DataSets.Name("nl_BE").LastName();
         public string placeOfBirth = new Bogus.DataSets.Address("nl").City();
         public string date = new Bogus.DataSets.Date().Past(20).ToString("dd-MM-yyyy");
-        public string cellPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("### ## ## ##");
+        public string cellPhoneNumber = new Bogus.DataSets.PhoneNumbers().PhoneNumber("## ### ## ##");
         public string street = new Bogus.DataSets.Address("nl_BE").StreetName();
         public string city = new Bogus.DataSets.Address("nl_BE").City();
         public string zipCode = new Bogus.DataSets.Address("nl_BE").ZipCode();
