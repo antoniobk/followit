@@ -63,6 +63,7 @@ namespace FollowIT___Automation
             catch
             {
                 Console.ForegroundColor = ConsoleColor.Red;
+
             }
 
         }
