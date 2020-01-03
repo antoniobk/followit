@@ -18,6 +18,7 @@ namespace FollowIT___Automation
     {
 
         Save save = new Save();
+        
         public void AddNewCandidate(IWebDriver driver)
         {
             try
@@ -251,7 +252,7 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath(INPUT_NAME)).SendKeys($"{firstName}Company name here");
                 driver.FindElement(By.XPath(INPUT_JURIDICALFORM)).SendKeys(juridicalFormsArray[index]);
                 Thread.Sleep(1000);
-                save.SaveOnly(driver);
+                save.SaveAndClose(driver);
             }
             catch
             {
