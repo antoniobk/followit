@@ -54,7 +54,7 @@ namespace FollowIT___Automation
                 driver.FindElement(By.XPath(RADIO_BTN_MANUALLY)).Click();
                 driver.FindElement(By.XPath(RADIO_BTN_THIRDPARTY)).Click();
                 driver.FindElement(By.XPath(INPUT_WEBSITE)).SendKeys($"https://www.{organizationWebsite}.be");
-                driver.FindElement(By.XPath(INPUT_PHONE)).SendKeys("+32 " + organizationPhoneNumber);
+             //   driver.FindElement(By.XPath(INPUT_PHONE)).SendKeys("+32 " + organizationPhoneNumber);
 
                 Console.WriteLine(" ===== Adding sales information ===== ");
                 driver.FindElement(By.XPath(INPUT_SALESLEAD)).SendKeys($"{salesLeadFirstName} {salesLeadLastName}");

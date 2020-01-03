@@ -45,7 +45,7 @@ namespace FollowIT___Automation
             } while (answer < 0 || answer > 6);
 
 
-            IWebDriver driver = new ChromeDriver("C:/chromedriver");
+            IWebDriver driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             
 
