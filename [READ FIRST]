@@ -1,0 +1,20 @@
+What to do after cloning project to Visual Studio
+
+1) Go to tools > Nuget Package Manager > Manage Nuget Packeges for solution
+2) Go to Browse, search and install following: Selenium.Webdriver, Selenium.Webdriver.Chromedrive
+3)When creating a new class you have to import following: 
+
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
+
+
+4) What this project contains: 
+
+Creating a candidate -> problem with second save (after trying to click second time on save or save and close the button is not found)
+Creating an organization -> problem with second save (after trying to click second time on save or save and close the button is not found)
+Creating a demand
+Creating a contract draft (starting from candidate and organization)
+Adding a new timesheet
