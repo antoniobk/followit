@@ -13,8 +13,8 @@ using OpenQA.Selenium.Interactions;
 
 4) What this project contains: 
 
-Creating a candidate -> problem with second save (after trying to click second time on save or save and close the button is not found)
-Creating an organization -> problem with second save (after trying to click second time on save or save and close the button is not found)
-Creating a demand
-Creating a contract draft (starting from candidate and organization)
-Adding a new timesheet
+* Creating a candidate -> problem with second save (after trying to click second time on save or save and close the button is not found)
+* Creating an organization -> problem with second save (after trying to click second time on save or save and close the button is not found)
+* Creating a demand
+* Creating a contract draft (starting from candidate and organization)
+* Adding a new timesheet
