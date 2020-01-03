@@ -64,6 +64,7 @@ namespace FollowIT___Automation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
             }
+
         }
             
 
