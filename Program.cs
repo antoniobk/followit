@@ -14,7 +14,7 @@ namespace FollowIT___Automation
         {
 
             Candidate candidate = new Candidate();
-            
+            Book book = new Book();
             Organizations organization = new Organizations();
             Demands demand = new Demands();
             Contractdrafts contractdaft = new Contractdrafts();
@@ -38,6 +38,7 @@ namespace FollowIT___Automation
                 Console.WriteLine("[3] - Add a new demand");
                 Console.WriteLine("[4] - Add a new contract draft");
                 Console.WriteLine("[5] - Add a new timesheet");
+                Console.WriteLine("[6] - Add new book");
                 Console.WriteLine("[8] - Test all\n");
                 Console.Write("Type your choice: ");
                 answer = int.Parse(Console.ReadLine());
@@ -45,7 +46,7 @@ namespace FollowIT___Automation
             } while (answer < 0 || answer > 6);
 
 
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = new ChromeDriver("C:/chromedriver");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             
 
@@ -106,7 +107,14 @@ namespace FollowIT___Automation
                     helper.OpenFinanceModule(driver);
                     timesheet.AddTimesheet(driver);
                     break;
-                
+
+                case 6:
+                    baseclass.SetupApplication(driver);
+                    login.UAT(driver);
+                    helper.OpenAssetsModule(driver);
+                    book.createBook(driver);
+                    break;
+
 
                 case 7:
 

@@ -62,7 +62,7 @@ namespace FollowIT___Automation
                 Thread.Sleep(2000);
                 driver.FindElement(By.XPath(NATIONALITY_DROPDWON)).Click();
 
-                string[] nationality = new string[5] { "Belgian", "German", "French", "Greek", "American" };
+                string[] nationality = new string[5] { "Belgian", "German", "French", "ss", "American" };
                 int index = random.Next(nationality.Length);
 
                 driver.FindElement(By.XPath($"//span[contains(text(),'{nationality[index]}')]")).Click();
