@@ -12,8 +12,9 @@ using NUnit.Framework;
 
 namespace FollowIT___Automation
 {
-    public class Book
+    public class Book:AssetsLocators
     {
+        Save save = new Save();
         public void createBook(IWebDriver driver)
         {
             driver.FindElement(By.XPath("//li[@data-testscript='Assets']")).Click();
@@ -24,7 +25,6 @@ namespace FollowIT___Automation
             Thread.Sleep(2000);
 
            
-
             try
             {
                 if (driver.FindElement(By.XPath("//button[@name='new']")).Displayed)
@@ -45,7 +45,24 @@ namespace FollowIT___Automation
            
             
 
-               driver.FindElement(By.XPath("//input[@name='name']")).SendKeys(naam[index]);
+            driver.FindElement(By.XPath("//input[@name='name']")).SendKeys(naam[index]);
+           //click on dropdown
+           driver.FindElement(By.XPath("//span[@tabindex='-1']")).Click();
+            Thread.Sleep(1000);
+
+           //dropdown items
+           string[] company = new string[4] { "Team4Talent", "Talent-IT", "Pro-Cured", "Talent2Test" };
+
+           //select random dropdown item
+           index = random.Next(company.Length);
+
+            driver.FindElement(By.XPath($"//span[contains(text(),'{company[index]}')]")).Click();
+            driver.FindElement(By.XPath("//input[@name='Link']")).SendKeys("https://Www.randomlink.com");
+            driver.FindElement(By.XPath("//input[@name='Certification']")).SendKeys("Certification");
+
+            save.SaveAndClose(driver);         
+
+
        
 
 
